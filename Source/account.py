@@ -5,12 +5,12 @@ class Account:
         self.name = name
         self.amount = amount
         self.interest = interest
-    def updateInterest():
-        amount *= Account.interest/100
-    def addAmount(change:float):
-        Account.amount += change
-    def removeAmount(change:float):
-        Account.addAmount -= change
+    def updateInterest(self):
+        amount *= self.interest/100
+    def addAmount(self, change:float):
+        self.amount += change
+    def removeAmount(self, change:float):
+        self.addAmount -= change
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:
@@ -27,14 +27,14 @@ class StockAccount:
         self.shares = shares
         self.sharePrice = sharePrice
         value = shares*sharePrice
-    def updateShares(change:int):
+    def updateShares(self, change:int):
         shares += change
-        Account.calculateValue()
-    def updateSharePrice(change:int):
+        self.calculateValue()
+    def updateSharePrice(self, change:int):
         sharePrice += change
-        Account.calculateValue()
-    def calculateValue():
-        value = StockAccount.shares* StockAccount.sharePrice
+        self.calculateValue()
+    def calculateValue(self):
+        value = self.shares* self.sharePrice
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

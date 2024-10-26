@@ -3,43 +3,55 @@ import numpy as np
 import os
 
 class DataManager:
-    graphDict = {"Microsoft":"IMSFT.csv", "Travel Zoo" : "ITZOO.csv", "FTSE 100" : "FTSE 100 Historical Data", "S&P 500": "S&P 500 Historical Data"}
+    graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500"}
     dataDict = {}
 
     @staticmethod
     def loadFromFile():
         fileArr = os.listdir("data")
+        #print(fileArr)
         # using loadtxt()
-        for str in fileArr:
+        for strName in fileArr:
             arr=[] #creating the array
-            filename = "data/"+str
-            #filename = "1MSFT.csv"
-            if str[0]=="1":
-                arr = np.loadtxt(filename, delimiter=",", dtype=str, skiprows= 1, usecols=2)
+            filename = "data/"+strName
+            if strName[0]=="1":
+                arr = np.loadtxt(filename, delimiter=",", dtype=str, skiprows= 0, usecols=2)
                 arr05 = []
-                print(arr)
                 for i in range(len(arr)-1,0,-1):
                     temp = (arr[i])[:-4]
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
             else:
-                arr = np.loadtxt(filename,delimiter=",", dtype=str, skiprows= 1, usecols=(3,2))
+                arr = np.loadtxt(filename,delimiter=",", dtype=str, skiprows= 0, usecols=(3,2))
                 arr05 = []
                 for i in range(len(arr)-1,0,-1):
                     temp = (arr[i][0]+arr[i][1])[:-4]
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
-        DataManager.dataDict[str] = arr
+            DataManager.dataDict[DataManager.graphDict[strName]] = arr
+        print(len(DataManager.dataDict))
+        for i in DataManager.dataDict.values():
+            print(len(i))
 
     #displaying our result.
     @staticmethod
     def displayResults(month:int, year:int, company:str):
-        tempStr = DataManager.graphDict[company]
-        arr = DataManager.dataDict[tempStr]
-        temp = []
+        arr = DataManager.dataDict[company]
+        print(len(arr))
+        tempX = []
+        tempY = []
         for i in range((12*year)+month):
-            temp.append(arr[i])
-        xpoints = np.array(temp)
-        ypoints = np.array(arr)
+            tempY.append(arr[i])
+            #print(i)
+            tempX.append(i)
+        xpoints = np.array(tempX)
+        ypoints = np.array(tempY)
         plt.plot(xpoints, ypoints)
-        plt.savefig(f"static/{tempStr}.png")
+        plt.savefig(f"static/{company}.png")
+
+def main():
+    DataManager.loadFromFile()
+    DataManager.displayResults(9, 19, 'Travel Zoo')
+
+if __name__ == "__main__":
+    main()

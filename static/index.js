@@ -24,7 +24,7 @@ function onBuyShare(shareName, sharePrice) {
 }
 
 function onSellShare(shareName, sharePrice) {
-    postRequest("/api/sellshare", { shareName: shareName, price: sharePrice }, function(response) {
+    postRequest("/api/sellshare", { name: shareName, price: sharePrice }, function(response) {
         console.log(response);
     });
     delayedRefresh();

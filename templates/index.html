@@ -14,14 +14,12 @@
     </div>
     <div class="panelcontainer">
         <image src="{{ url_for('static', filename='piechart.png') }}"></image>
+        {% for account in accounts %}
         <div class="playercontainer">
-            <h3>Current Account</h3>
-            <p>Cash: £999</p>
+            <h3>{{ account.name }}</h3>
+            <p>Cash: £{{ account.amount }}</p>
         </div>
-        <div class="playercontainer">
-            <h3>Savings Account</h3>
-            <p>Cash: £9999</p>
-        </div>
+        {% endfor %}
         <div class="playercontainer">
             <h3>Apple Shares</h3>
             <p>Amount: 2

@@ -10,8 +10,17 @@ class Player:
         self.startingMoney = startingMoney
         self.accounts = []
         self.stocks = []
-        self.makeAccount("Current Account", startingMoney, 5.0)
-        self.makeAccount("Savings Account", 0, 5)
+        self.makeAccount("Current Account", startingMoney)
+        self.makeAccount("Savings Account", 0)
+    
+    @staticmethod
+    def loadDefaultPlayer(name="John"):
+        player = Player(name, 10000)
+        player.accounts = [
+            account.Account("Current Account", 1100),
+            account.Account("Savings Account", 500)
+        ]
+        return player
 
     def makePieChart(self):
         nums = []
@@ -31,14 +40,11 @@ class Player:
     def makeStockAccount(self, name:str, shares:int, sharePrice:float):
         a = account.StockAccount(name, shares, sharePrice)
         self.stocks.append(a)
-    def makeAccount(self, name:str, amount:float, interest:float):
-        a = account.Account(name, amount, interest)
+    def makeAccount(self, name:str, amount:float):
+        a = account.Account(name, amount) # interest is deprecated
         self.accounts.append(a)
     def salaryUpdate(self, salary:int, taxes:float):
         self.accounts[0].amount += (salary*taxes/100)
-    @staticmethod
-    def loadDefaultPlayer(name="Default player"):
-        return Player(name, 1000)
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

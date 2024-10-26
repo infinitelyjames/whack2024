@@ -1,7 +1,11 @@
 import pickle
 
 class Account:
-    def __init__(self, name:str, amount:float, interest:float):
+    """
+    INTEREST IS DEPRECATED, DO NOT USE
+    IT IS VARIABLE, SO IT WILL NOT BE SAVED
+    """
+    def __init__(self, name:str, amount:float):
         self.name = name
         self.amount = amount
         self.interest = interest

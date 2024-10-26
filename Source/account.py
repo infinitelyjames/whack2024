@@ -32,10 +32,11 @@ class StockAccount:
         self.sharePrice = sharePrice
         self.value = shares*sharePrice
     def updateShares(self, change:int):
-        shares += change
+        print(f"INFO: Updating {self.name} shares by {change}, was {self.shares}")
+        self.shares += change
         self.calculateValue()
     def updateSharePrice(self, change:int):
-        sharePrice += change
+        self.sharePrice += change
         self.calculateValue()
     def calculateValue(self):
         self.value = self.shares* self.sharePrice

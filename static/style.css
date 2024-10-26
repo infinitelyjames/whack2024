@@ -37,6 +37,7 @@ input[type=submit] { align-self: start; min-width: 10em; }
 .panelcontainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: start;
     gap: 0.5vmax;
 }

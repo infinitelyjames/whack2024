@@ -24,13 +24,10 @@ C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\obj\Debug\net8.0\MyGame.pd
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\obj\Debug\net8.0\MyGame.genruntimeconfig.cache
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\obj\Debug\net8.0\ref\MyGame.dll
 <<<<<<< HEAD
-<<<<<<< HEAD
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\bin\Debug\net8.0\Content\circle.xnb
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\obj\Debug\net8.0\MyGame.sourcelink.json
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\bin\Debug\net8.0\Content\Button.xnb
 C:\Users\EdwinH\Documents\My Work\WHACKProject\MyGame\bin\Debug\net8.0\Content\ButtonFont.xnb
-=======
->>>>>>> 55f026ffd8e6d8d178a0579e908263ab9dd12d54
 =======
 >>>>>>> 55f026ffd8e6d8d178a0579e908263ab9dd12d54
 C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\bin\Debug\net8.0\MyGame.exe
@@ -59,3 +56,6 @@ C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\obj\Debug\net8.0\re
 C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\obj\Debug\net8.0\MyGame.pdb
 C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\obj\Debug\net8.0\MyGame.genruntimeconfig.cache
 C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\obj\Debug\net8.0\ref\MyGame.dll
+C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\bin\Debug\net8.0\Content\Button.xnb
+C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\bin\Debug\net8.0\Content\ButtonFont.xnb
+C:\Users\infin\Documents\Programming\GitHub\whack2024\MyGame\bin\Debug\net8.0\Content\circle.xnb

@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/Button.png</File>
-    <File>C:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/ButtonFont.spritefont</File>
-    <File>C:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/circle.png</File>
+    <File>C:/Users/infin/Documents/Programming/GitHub/whack2024/MyGame/Content/Button.png</File>
+    <File>C:/Users/infin/Documents/Programming/GitHub/whack2024/MyGame/Content/ButtonFont.spritefont</File>
+    <File>C:/Users/infin/Documents/Programming/GitHub/whack2024/MyGame/Content/circle.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -4,6 +4,7 @@ from Source.background import create_thread
 import traceback
 
 MONTHS_DURATION = 5 # How many seconds to spend on each month in the game
+MONTH_COUNT_LIMIT=18*12 # 18 years
 STARTING_YEAR = 2005
 
 class App:
@@ -29,9 +30,11 @@ class App:
     
     # update all images displayed on the home page
     def updateAllImages(self):
+        data.DataManager.displayAllResults(self.monthCount)
         self.gamePlayer.makePieChart()
     
     def incrementMonth(self):
+        if (self.monthCount >= MONTH_COUNT_LIMIT): return
         self.monthCount += 1
         # TODO: add interest and change stocks
         # TODO: implement logic to prevent going beyond the timeframe of the data

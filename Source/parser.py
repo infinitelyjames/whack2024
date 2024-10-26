@@ -35,7 +35,7 @@ class DataManager:
     @staticmethod
     def displayResults(month:int, year:int, company:str):
         arr = DataManager.dataDict[company]
-        print(len(arr))
+        #print(len(arr))
         tempX = []
         tempY = []
         for i in range((12*year)+month):
@@ -49,7 +49,7 @@ class DataManager:
 
 def main():
     DataManager.loadFromFile()
-    DataManager.displayResults(9, 19, 'Travel Zoo')
+    DataManager.displayResults(8, 19, 'Microsoft')
 
 if __name__ == "__main__":
     main()

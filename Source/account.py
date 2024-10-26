@@ -6,7 +6,7 @@ class Account:
         self.amount = amount
         self.interest = interest
     def updateInterest(self):
-        amount *= self.interest/100
+        amount *= (1+self.interest/12*100)
     def addAmount(self, change:float):
         self.amount += change
     def removeAmount(self, change:float):

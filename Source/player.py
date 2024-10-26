@@ -56,9 +56,12 @@ class Player:
                 if not (self.accounts[0].amoount - (amount*price) < 0):
                     i.updateShares(amount)
                     alreadyBought = True
-        if not alreadyBought and not alreadyNegative:
-            self.makeStockAccount(name, amount, price)
-        if not alreadyNegative:
+                else:
+                    alreadyNegative = True
+                    break
+        if(alreadyNegative == False):
+            if  alreadyBought == False:
+                self.makeStockAccount(name, amount, price)
             self.accounts[0].amount -= (amount*price)
             
     def sellShares(self, name:str, amount:int, price:float):

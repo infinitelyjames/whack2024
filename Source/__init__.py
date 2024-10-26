@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from Source.background import create_thread
 
 MONTHS_DURATION = 30 # How many seconds to spend on each month in the game
+STARTING_YEAR = 2005
 
 class App:
     """
@@ -14,6 +15,15 @@ class App:
         self.gamePlayer = player.Player.loadDefaultPlayer()
         self.nextMonthStartsTimestamp = time.time()
         self.monthCount = 0
+    
+    def getMonth(self):
+        return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][self.monthCount % 12]
+
+    def getYear(self):
+        return STARTING_YEAR + self.monthCount // 12
+
+    def getDate(self):
+        return f"1st {self.getMonth()} {self.getYear()}"
     
     # update all images displayed on the home page
     def updateAllImages(self):
@@ -27,10 +37,10 @@ class App:
     def background(self):
         while True: # hella nah but for now
             print(f"INFO[Background Thread]: Starting month {self.monthCount}")
-            self.incrementMonth()
-            self.updateAllImages()
             self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
             time.sleep(MONTHS_DURATION)
+            self.incrementMonth()
+            self.updateAllImages()
 
     def spawnBackground(self):
         create_thread(self.background, ())
@@ -43,6 +53,7 @@ class App:
                 'index.html', 
                 current_account_cash=1000, 
                 accounts=self.gamePlayer.accounts, 
+                dateText=self.getDate(),
             )
     
     def addPOSTRoutes(self):

@@ -8,9 +8,11 @@ class Account:
     def __init__(self, name:str, amount:float):
         self.name = name
         self.amount = amount
-        self.interest = 0 # deprecated
-    def updateInterest(self):
-        amount *= (1+self.interest/12*100)
+        self.interest = [4.75,4.65,5.52,4.62,0.63,0.5,0.5,0.5,0.5,0.5,0.5,0.4,0.28,0.59,0.75,0.22,0.1,1.56,4.73,5.18]
+ # deprecated
+    def updateInterest(self,monthcount):
+        tempintrest = self.interest[monthcount // 12]
+        amount *= (1+tempintrest/12*100)
     def addAmount(self, change:float):
         self.amount += change
     def removeAmount(self, change:float):

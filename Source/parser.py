@@ -41,6 +41,7 @@ class DataManager:
         ypoints = np.array(tempY)
         plt.plot(xpoints, ypoints)
         plt.savefig(f"static/{company}.png")
+        plt.close()
 
 def main():
     DataManager.loadFromFile()

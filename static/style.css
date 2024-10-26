@@ -65,3 +65,15 @@ button {
     border-radius: 0.5vmax;
     cursor: pointer;
 }
+
+.stockthumbnailimage {
+    width: 10vmax;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 0.5vmax;
+}

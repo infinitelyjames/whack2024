@@ -3,6 +3,9 @@ import Source.account as account
 import matplotlib.pyplot as plt
 import numpy as np
 import Source.tax_calculator
+import matplotlib
+
+matplotlib.use('Agg') # DO NOT REMOVE, THIS IS NEEDED FOR THREAD-SAFETY
 
 class Player:
     def __init__(self, name:str, startingMoney:float):

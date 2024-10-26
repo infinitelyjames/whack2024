@@ -47,6 +47,10 @@ class DataManager:
         plt.savefig(f"static/{company}.png")
         plt.close()
     
+    @staticmethod
+    def getCompanyNames():
+        return DataManager.graphDict.values()
+    
     @staticmethod 
     def getStockPrice(month:int, company:str):
         arr = DataManager.dataDict[company]

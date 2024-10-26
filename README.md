@@ -15,3 +15,4 @@ stocks, random events, savings account, piue chart for value of investments, new
 - Hard Date Limit
 - History of net loss / gain
 - Net worth total (maybe track history)
+- Bad css crops share image if aspect ratio of container is weird.

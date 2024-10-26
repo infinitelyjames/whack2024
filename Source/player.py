@@ -81,6 +81,17 @@ class Player:
             temp+= i.amount
         self.totalMoney = temp
 
+    def transferMoney(self, amount:float, acOne:str, acTwo:str):
+        temp1
+        temp2
+        for i in self.accounts:
+            if i.name == acOne:
+                temp1 = i
+            elif i.name == acTwo:
+                temp2 = i
+        temp1.removeAmount(amount)
+        temp2.addAmount(amount)
+
     def salaryUpdate(self, salary:int, year:int):
         self.accounts[0].amount += salary - Source.tax_calculator.calculate_tax(year, salary)
     @staticmethod

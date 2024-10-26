@@ -36,11 +36,15 @@ class App:
 
     def background(self):
         while True: # hella nah but for now
-            print(f"INFO[Background Thread]: Starting month {self.monthCount}")
-            self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
-            time.sleep(MONTHS_DURATION)
-            self.incrementMonth()
-            self.updateAllImages()
+            try:
+                print(f"INFO[Background Thread]: Starting month {self.monthCount}")
+                self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
+                time.sleep(MONTHS_DURATION)
+                self.incrementMonth()
+                self.updateAllImages()
+            except Exception as e:
+                print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")
+                time.sleep(5)
 
     def spawnBackground(self):
         create_thread(self.background, ())

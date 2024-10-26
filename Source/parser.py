@@ -12,6 +12,8 @@ class DataManager:
         for strName in fileArr:
             arr=[] #creating the array
             filename = "data/"+strName
+            #Need this if -else statement because the data files that start with 1 are arranged differently
+            #to the others
             if strName[0]=="1":
                 arr = np.loadtxt(filename, delimiter=",", dtype=str, skiprows= 0, usecols=2)
                 arr05 = []

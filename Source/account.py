@@ -8,8 +8,9 @@ class Account:
     def __init__(self, name:str, amount:float):
         self.name = name
         self.amount = amount
-    def updateInterest(self, interest:float): # note, interest should be a monthly interest rate
-        amount *= interest/100
+        self.interest = interest
+    def updateInterest(self):
+        amount *= (1+self.interest/12*100)
     def addAmount(self, change:float):
         self.amount += change
     def removeAmount(self, change:float):

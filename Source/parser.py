@@ -9,8 +9,6 @@ class DataManager:
     @staticmethod
     def loadFromFile():
         fileArr = os.listdir("data")
-        #print(fileArr)
-        # using loadtxt()
         for strName in fileArr:
             arr=[] #creating the array
             filename = "data/"+strName
@@ -29,18 +27,15 @@ class DataManager:
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
             DataManager.dataDict[DataManager.graphDict[strName]] = arr
-        #print(len(DataManager.dataDict))
 
     #displaying our result.
     @staticmethod
     def displayResults(month:int, year:int, company:str):
         arr = DataManager.dataDict[company]
-        print(len(arr))
         tempX = []
         tempY = []
         for i in range((12*year)+month):
             tempY.append(arr[i])
-            #print(i)
             tempX.append(i)
         xpoints = np.array(tempX)
         ypoints = np.array(tempY)
@@ -49,7 +44,7 @@ class DataManager:
 
 def main():
     DataManager.loadFromFile()
-    DataManager.displayResults(9, 19, 'Travel Zoo')
+    DataManager.displayResults(8, 19, 'Microsoft')
 
 if __name__ == "__main__":
     main()

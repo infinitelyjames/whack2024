@@ -46,6 +46,21 @@ class Player:
     def makeAccount(self, name:str, amount:float):
         a = account.Account(name, amount) # interest is deprecated
         self.accounts.append(a)
+    
+    def buyShares(self, name:str, amount:int, price:float):
+        alreadyBought = False
+        for i in self.stocks:
+            if i.name == name:
+                i.shares += amount
+                alreadyBought = True
+        if not alreadyBought:
+            self.makeStockAccount(name, amount, price)
+        self.money -= (amount*price)
+            
+        
+
+    def salaryUpdate(self, salary:int, taxes:float):
+        self.accounts[0].amount += (salary*taxes/100)
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

@@ -8,7 +8,7 @@ class Account:
     def __init__(self, name:str, amount:float):
         self.name = name
         self.amount = amount
-        self.interest = interest
+        self.interest = 0 # deprecated
     def updateInterest(self):
         amount *= (1+self.interest/12*100)
     def addAmount(self, change:float):

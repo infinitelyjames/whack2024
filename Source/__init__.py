@@ -30,7 +30,7 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route('/')
-    def hello():
-        return render_template('index.html')
+    def index():
+        return render_template('index.html', current_account_cash=1000)
 
     return app

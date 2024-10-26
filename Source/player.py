@@ -53,7 +53,7 @@ class Player:
         alreadyNegative = False
         for i in self.stocks:
             if i.name == name:
-                if not (self.accounts[0].amoount - (amount*price) < 0):
+                if not (self.accounts[0].amount - (amount*price) < 0):
                     i.updateShares(amount)
                     alreadyBought = True
         if not alreadyBought and not alreadyNegative:

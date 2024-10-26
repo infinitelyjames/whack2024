@@ -1,5 +1,5 @@
 import os, Source.player as player, time
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
 
@@ -66,8 +66,17 @@ class App:
     def addPOSTRoutes(self):
         @self.app.route('/api/buyshare', methods=['POST'])
         def buyShare():
-            # return not implemented with status code 501
-            return "Not implemented", 501
+            print("INFO: Buying share")
+            data = request.json
+            name = data['name']
+            price = data['price']
+            print(f"INFO: Buying {name} for {price}")
+            try:
+                price = float(price)
+            except:
+                return "Invalid price", 400
+            self.gamePlayer.buyShares(name, 1, price)
+            return "Success", 200
         @self.app.route('/api/sellshare', methods=['POST'])
         def sellShare():
             # return not implemented with status code 501

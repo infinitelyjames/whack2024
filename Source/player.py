@@ -20,6 +20,9 @@ class Player:
             account.Account("Current Account", 1100),
             account.Account("Savings Account", 500)
         ]
+        player.stockAccounts = [
+            account.StockAccount("Apple", 10, 100),
+        ]
         return player
 
     def makePieChart(self):

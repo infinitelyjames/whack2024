@@ -27,7 +27,7 @@ class App:
     def background(self):
         while True: # hella nah but for now
             print(f"INFO[Background Thread]: Starting month {self.monthCount}")
-            self.incrementDay()
+            self.incrementMonth()
             self.updateAllImages()
             self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
             time.sleep(MONTHS_DURATION)

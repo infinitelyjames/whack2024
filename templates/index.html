@@ -20,7 +20,7 @@
             <p>Cash: £{{ account.amount }}</p>
         </div>
         {% endfor %}
-        {% for share in shares %}
+        {% for share in playerShares %}
         <div class="playercontainer">
             <h3>{{ share.name }} Shares</h3>
             <p>Amount: {{ share.shares }}
@@ -37,6 +37,17 @@
     </div>
     <h2>Stock Market</h2>
     <div class="panelcontainer">
+        {% for companyName, sharePrices in allShares.items() %}
+        <div class="playercontainer">
+            <h3>{{ companyName }} Shares</h3>
+            <p>Price: £{{ sharePrices[monthCount] }}</p>
+            <div class="buttonrow" >
+                <button onclick="onBuyShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Buy</button>
+                <button onclick="onSellShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Sell</button>
+            </div>
+            <img src="">
+        </div>
+        {% endfor %}
         <div class="playercontainer">
             <h3>Apple Shares</h3>
             <p>Amount: 2

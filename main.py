@@ -1,5 +1,4 @@
-import Source as App
+import Source as app
 
 if __name__ == "__main__":
-    app = App.create_app()
-    app.run()
+    app.App.start()

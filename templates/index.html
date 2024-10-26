@@ -28,8 +28,8 @@
                 <br>Total Value: £200 (£100 each)
             </p>
             <div class="buttonrow" >
-                <button>Buy</button>
-                <button>Sell</button>
+                <button onclick="onBuyShare('apple')">Buy</button>
+                <button onclick="onSellShare('apple')">Sell</button>
             </div>
             <p>Placeholder for image</p>
         </div>
@@ -72,5 +72,6 @@
         </div>
         <!-- Maybe use an iframe??? TBD-->
     </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>

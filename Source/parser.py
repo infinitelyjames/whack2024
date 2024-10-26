@@ -19,7 +19,7 @@ class DataManager:
                 arr05 = []
                 for i in range(len(arr)-1,0,-1):
                     temp = (arr[i])[:-4]
-                    arr05.append(int(temp[1:])/100)
+                    arr05.append(int(temp[1:]))
                 arr = arr05.copy()
             else:
                 arr = np.loadtxt(filename,delimiter=",", dtype=str, skiprows= 0, usecols=(3,2))
@@ -34,20 +34,27 @@ class DataManager:
     @staticmethod
     def displayResults(month:int, company:str):
         arr = DataManager.dataDict[company]
+        #print(arr)
         tempX = []
         tempY = []
         for i in range(month):
             tempY.append(arr[i])
-            tempX.append(i)
+            tempX.append(i)#This is the months for the x-axis
         xpoints = np.array(tempX)
         ypoints = np.array(tempY)
         plt.plot(xpoints, ypoints)
         plt.savefig(f"static/{company}.png")
         plt.close()
+    
+    @staticmethod 
+    def getStockPrice(month:int, company:str):
+        arr = DataManager.dataDict[company]
+        return arr[month]
 
 def main():
     DataManager.loadFromFile()
-    DataManager.displayResults(8, 19, 'Microsoft')
+    DataManager.displayResults(29, 'Microsoft')
+    print(DataManager.getStockPrice(19, "Microsoft"))
 
 if __name__ == "__main__":
     main()

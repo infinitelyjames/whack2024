@@ -27,6 +27,14 @@ class StockAccount:
         self.shares = shares
         self.sharePrice = sharePrice
         value = shares*sharePrice
+    def updateShares(change:int):
+        shares += change
+        Account.calculateValue()
+    def updateSharePrice(change:int):
+        sharePrice += change
+        Account.calculateValue()
+    def calculateValue():
+        value = StockAccount.shares* StockAccount.sharePrice
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

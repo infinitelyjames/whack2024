@@ -60,7 +60,7 @@ class Player:
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:
             if i.name == name:
-                i.shares += amount
+                i.shares -= amount
                 self.money += (amount*price)
 
 

@@ -36,6 +36,7 @@ class App:
     def incrementMonth(self):
         if (self.monthCount >= MONTH_COUNT_LIMIT): return
         self.monthCount += 1
+        self.gamePlayer.accounts[1].updateInterest(self.monthCount)
         # TODO: add interest and change stocks
         # TODO: implement logic to prevent going beyond the timeframe of the data
 

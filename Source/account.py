@@ -5,10 +5,9 @@ class Account:
     INTEREST IS DEPRECATED, DO NOT USE
     IT IS VARIABLE, SO IT WILL NOT BE SAVED
     """
-    def __init__(self, name:str, amount:float, interest:float):
+    def __init__(self, name:str, amount:float):
         self.name = name
         self.amount = amount
-        self.interest = interest
     def updateInterest(self, interest:float): # note, interest should be a monthly interest rate
         amount *= interest/100
     def addAmount(self, change:float):

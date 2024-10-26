@@ -1,25 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\infin\\Documents\\Programming\\GitHub\\whack2024\\MyGame\\MyGame.csproj": {}
+    "C:\\Users\\EdwinH\\Documents\\My Work\\WHACKProject\\MyGame\\MyGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\infin\\Documents\\Programming\\GitHub\\whack2024\\MyGame\\MyGame.csproj": {
+    "C:\\Users\\EdwinH\\Documents\\My Work\\WHACKProject\\MyGame\\MyGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\infin\\Documents\\Programming\\GitHub\\whack2024\\MyGame\\MyGame.csproj",
+        "projectUniqueName": "C:\\Users\\EdwinH\\Documents\\My Work\\WHACKProject\\MyGame\\MyGame.csproj",
         "projectName": "MyGame",
-        "projectPath": "C:\\Users\\infin\\Documents\\Programming\\GitHub\\whack2024\\MyGame\\MyGame.csproj",
-        "packagesPath": "C:\\Users\\infin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\infin\\Documents\\Programming\\GitHub\\whack2024\\MyGame\\obj\\",
+        "projectPath": "C:\\Users\\EdwinH\\Documents\\My Work\\WHACKProject\\MyGame\\MyGame.csproj",
+        "packagesPath": "C:\\Users\\EdwinH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EdwinH\\Documents\\My Work\\WHACKProject\\MyGame\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\EdwinH\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\infin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\EdwinH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EdwinH\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

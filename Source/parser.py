@@ -29,9 +29,7 @@ class DataManager:
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
             DataManager.dataDict[DataManager.graphDict[strName]] = arr
-        print(len(DataManager.dataDict))
-        for i in DataManager.dataDict.values():
-            print(len(i))
+        #print(len(DataManager.dataDict))
 
     #displaying our result.
     @staticmethod

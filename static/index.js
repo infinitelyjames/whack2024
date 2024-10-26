@@ -10,14 +10,22 @@ function postRequest(url, data, callback) {
     xhr.send(JSON.stringify(data));
 }
 
+function delayedRefresh() {
+    setTimeout(function() {
+        window.location.reload();
+    }, 1000);
+}
+
 function onBuyShare(shareName, sharePrice) {
     postRequest("/api/buyshare", { name: shareName, price: sharePrice }, function(response) {
         console.log(response);
     });
+    delayedRefresh();
 }
 
 function onSellShare(shareName, sharePrice) {
     postRequest("/api/sellshare", { shareName: shareName, price: sharePrice }, function(response) {
         console.log(response);
     });
+    delayedRefresh();
 }

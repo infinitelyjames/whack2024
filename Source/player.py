@@ -52,6 +52,7 @@ class Player:
         for i in self.stocks:
             if i.name == name:
                 i.shares += amount
+                i.calculateValue()
                 alreadyBought = True
         if not alreadyBought:
             self.makeStockAccount(name, amount, price)

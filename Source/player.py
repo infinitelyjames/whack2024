@@ -62,6 +62,7 @@ class Player:
         for i in self.stocks:
             if i.name == name:
                 i.shares -= amount
+                i.calculateValue()
                 self.money += (amount*price)
 
 

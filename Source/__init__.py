@@ -79,8 +79,17 @@ class App:
             return "Success", 200
         @self.app.route('/api/sellshare', methods=['POST'])
         def sellShare():
-            # return not implemented with status code 501
-            return "Not implemented", 501
+            print("INFO: Selling share")
+            data = request.json
+            name = data['name']
+            price = data['price']
+            print(f"INFO: Selling {name} for {price}")
+            try:
+                price = float(price)
+            except:
+                return "Invalid price", 400
+            self.gamePlayer.sellShares(name, 1, price)
+            return "Success", 200
 
     def addRoutes(self):
         if (self.app == None): raise Exception("App not initialised")

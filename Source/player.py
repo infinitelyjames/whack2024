@@ -52,10 +52,11 @@ class Player:
         for i in self.stocks:
             if i.name == name:
                 i.shares += amount
-                self.money -= (amount*price)
                 alreadyBought = True
         if not alreadyBought:
             self.makeStockAccount(name, amount, price)
+        self.money -= (amount*price)
+            
         
 
     def salaryUpdate(self, salary:int, taxes:float):

@@ -4,8 +4,7 @@ import os
 from Source.background import create_thread
 
 class DataManager:
-    graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500",
-                 "1BB.csv" : "BlackBerry"}
+    graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500"}
     dataDict = {}
 
     @staticmethod

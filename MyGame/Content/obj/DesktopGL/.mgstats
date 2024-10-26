@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/Button.png","c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/bin/DesktopGL/Button.xnb","TextureProcessor","Texture2DContent",394,65621,0.1219238
+"c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/ButtonFont.spritefont","c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/bin/DesktopGL/ButtonFont.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.0904105
+"c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/circle.png","c:/Users/EdwinH/Documents/My Work/WHACKProject/MyGame/Content/bin/DesktopGL/circle.xnb","TextureProcessor","Texture2DContent",3965,87701,0.0061049

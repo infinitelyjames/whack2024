@@ -8,8 +8,11 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    
-
+    private PieChart test;
+    private Button button;
+    private Texture2D texture;
+    private Texture2D buttonTexture;
+    private SpriteFont buttonFont;
 
     public Game1()
     {
@@ -28,7 +31,11 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+        texture = Content.Load<Texture2D>("circle");
+        buttonTexture = Content.Load<Texture2D>("Button");
+        buttonFont = Content.Load<SpriteFont>("ButtonFont");
+        test = new PieChart(texture, new Vector2(150, 150));
+        button = new Button(buttonTexture, new Vector2(100, 100), buttonFont);
         // TODO: use this.Content to load your game content here
     }
 
@@ -45,10 +52,11 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
+        GraphicsDevice.Clear(Color.White);
+        _spriteBatch.Begin();
         // TODO: Add your drawing code here
         EntityManager.Draw(gameTime, _spriteBatch);
+        _spriteBatch.End();
 
         base.Draw(gameTime);
     }

@@ -14,3 +14,4 @@ stocks, random events, savings account, piue chart for value of investments, new
 - News articles (historical)
 - Hard Date Limit
 - History of net loss / gain
+- Net worth total (maybe track history)

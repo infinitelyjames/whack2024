@@ -60,7 +60,8 @@ class App:
                 current_account_cash=1000, 
                 accounts=self.gamePlayer.accounts, 
                 dateText=self.getDate(),
-                shares=self.gamePlayer.stocks
+                shares=self.gamePlayer.stocks,
+                nextMonthStartsTimestamp=self.nextMonthStartsTimestamp
             )
     
     def addPOSTRoutes(self):

@@ -26,7 +26,7 @@ def create_app(test_config=None):
         pass
 
     #Create a player instance:
-    player = player.Player("John", 10000)
+    gamePlayer = player.Player("John", 10000)
 
     # a simple page that says hello
     @app.route('/')

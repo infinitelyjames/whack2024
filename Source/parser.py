@@ -61,8 +61,9 @@ class DataManager:
     
     @staticmethod
     def displayAllResults(month:int):
+        print("Displaying all results for month", month)
         for company in DataManager.graphDict.values():
-            DataManager.displayResults, (month, company)
+            DataManager.displayResults(month, company)
 
 def main():
     DataManager.loadFromFile()

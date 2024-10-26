@@ -32,11 +32,11 @@ class DataManager:
 
     #displaying our result.
     @staticmethod
-    def displayResults(month:int, year:int, company:str):
+    def displayResults(month:int, company:str):
         arr = DataManager.dataDict[company]
         tempX = []
         tempY = []
-        for i in range((12*year)+month):
+        for i in range(month):
             tempY.append(arr[i])
             tempX.append(i)
         xpoints = np.array(tempX)

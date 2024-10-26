@@ -27,7 +27,6 @@ class Player:
         y = np.array(nums)
         plt.pie(y, labels = strings)
         plt.savefig("static/piechart.png")
-        #plt.show()
 
     def makeStockAccount(self, name:str, shares:int, sharePrice:float):
         a = account.StockAccount(name, shares, sharePrice)

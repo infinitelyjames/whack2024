@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+import player
 
 
 def create_app(test_config=None):
@@ -23,6 +24,9 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    #Create a player instance:
+    player = player.Player("John", 10000)
 
     # a simple page that says hello
     @app.route('/')

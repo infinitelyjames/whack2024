@@ -37,6 +37,10 @@ class App:
         def buyShare():
             # return not implemented with status code 501
             return "Not implemented", 501
+        @self.app.route('/api/sellshare', methods=['POST'])
+        def sellShare():
+            # return not implemented with status code 501
+            return "Not implemented", 501
 
     def addRoutes(self):
         if (self.app == None): raise Exception("App not initialised")

@@ -15,3 +15,9 @@ function onBuyShare(shareName) {
         console.log(response);
     });
 }
+
+function onSellShare(shareName) {
+    postRequest("/api/sellshare", { shareName: shareName }, function(response) {
+        console.log(response);
+    });
+}

@@ -1,8 +1,9 @@
 import os, Source.player as player, time
 from flask import Flask, render_template
 from Source.background import create_thread
+import traceback
 
-MONTHS_DURATION = 30 # How many seconds to spend on each month in the game
+MONTHS_DURATION = 5 # How many seconds to spend on each month in the game
 STARTING_YEAR = 2005
 
 class App:
@@ -44,6 +45,7 @@ class App:
                 self.updateAllImages()
             except Exception as e:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")
+                traceback.print_exc()
                 time.sleep(5)
 
     def spawnBackground(self):

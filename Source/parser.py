@@ -1,7 +1,10 @@
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 import os
 from Source.background import create_thread
+
+matplotlib.use('Agg') # DO NOT REMOVE, THIS IS NEEDED FOR THREAD-SAFETY
 
 class DataManager:
     graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500"}

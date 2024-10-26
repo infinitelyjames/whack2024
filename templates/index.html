@@ -21,16 +21,18 @@
         </div>
         {% endfor %}
         {% for share in playerShares %}
-        <div class="playercontainer">
-            <h3>{{ share.name }} Shares</h3>
-            <p>Amount: {{ share.shares }}
-                <br>Total Value: £{{ share.value }} (£{{ share.sharePrice }} each)
-            </p>
-            <div class="buttonrow" >
-                <button onclick="onBuyShare('{{ share.name }}', {{ share.sharePrice }})">Buy</button>
-                <button onclick="onSellShare('{{ share.name }}', {{ share.sharePrice }})">Sell</button>
+        <div class="playercontainer row">
+            <div>
+                <h3>{{ share.name }} Shares</h3>
+                <p>Amount: {{ share.shares }}
+                    <br>Total Value: £{{ share.value }} (£{{ share.sharePrice }} each)
+                </p>
+                <div class="buttonrow" >
+                    <button onclick="onBuyShare('{{ share.name }}', {{ share.sharePrice }})">Buy</button>
+                    <button onclick="onSellShare('{{ share.name }}', {{ share.sharePrice }})">Sell</button>
+                </div>
             </div>
-            <p>Placeholder for image</p>
+            <img src="/static/{{ share.name }}.png" class="stockthumbnailimage">
         </div>
         {% endfor %}
 
@@ -39,13 +41,17 @@
     <div class="panelcontainer">
         {% for companyName, sharePrices in allShares.items() %}
         <div class="playercontainer">
-            <h3>{{ companyName }} Shares</h3>
-            <p>Price: £{{ sharePrices[monthCount] }}</p>
-            <div class="buttonrow" >
-                <button onclick="onBuyShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Buy</button>
-                <button onclick="onSellShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Sell</button>
+            <div class="row">
+                <div>
+                    <h3>{{ companyName }} Shares</h3>
+                    <p>Price: £{{ sharePrices[monthCount] }}</p>
+                    <div class="buttonrow" >
+                        <button onclick="onBuyShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Buy</button>
+                        <button onclick="onSellShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Sell</button>
+                    </div>
+                </div>
+                <img src="/static/{{ companyName }}.png" class="stockthumbnailimage">
             </div>
-            <img src="/static/{{ companyName }}.png">
         </div>
         {% endfor %}
     </div>

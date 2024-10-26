@@ -65,3 +65,17 @@ button {
     border-radius: 0.5vmax;
     cursor: pointer;
 }
+
+.stockthumbnailimage {
+    width: 10vmax;
+    min-height: auto;
+    object-fit: cover;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 0.5vmax;
+}

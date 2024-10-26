@@ -11,7 +11,7 @@ class App:
     """
     def __init__(self):
         #Create a player instance:
-        self.gamePlayer = player.Player("John", 10000)
+        self.gamePlayer = player.Player.loadDefaultPlayer()
         self.nextMonthStartsTimestamp = time.time()
         self.monthCount = 0
     
@@ -39,7 +39,11 @@ class App:
         # a simple page that says hello
         @self.app.route('/')
         def index():
-            return render_template('index.html', current_account_cash=1000)
+            return render_template(
+                'index.html', 
+                current_account_cash=1000, 
+                accounts=self.gamePlayer.accounts, 
+            )
     
     def addPOSTRoutes(self):
         @self.app.route('/api/buyshare', methods=['POST'])

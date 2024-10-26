@@ -11,17 +11,26 @@ class App:
     """
     def __init__(self):
         #Create a player instance:
-        gamePlayer = player.Player("John", 10000)
+        self.gamePlayer = player.Player("John", 10000)
+        self.nextMonthStartsTimestamp = time.time()
+        self.monthCount = 0
     
     # update all images displayed on the home page
     def updateAllImages(self):
-        pass
+        self.gamePlayer.makePieChart()
+    
+    def incrementMonth(self):
+        self.monthCount += 1
+        # TODO: add interest and change stocks
+        # TODO: implement logic to prevent going beyond the timeframe of the data
 
     def background(self):
-        while True:
+        while True: # hella nah but for now
+            print(f"INFO[Background Thread]: Starting month {self.monthCount}")
+            self.incrementDay()
             self.updateAllImages()
-            print("Background thread is running")
-            time.sleep(10)
+            self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
+            time.sleep(MONTHS_DURATION)
 
     def spawnBackground(self):
         create_thread(self.background, ())

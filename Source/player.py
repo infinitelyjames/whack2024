@@ -48,7 +48,7 @@ class Player:
         self.accounts.append(a)
     
     def buyShares(self, name:str, amount:int, price:float):
-        alreadyBought = False
+        alreadyBought = False 
         for i in self.stocks:
             if i.name == name:
                 i.shares += amount
@@ -57,7 +57,12 @@ class Player:
             self.makeStockAccount(name, amount, price)
         self.money -= (amount*price)
             
-        
+    def sellShares(self, name:str, amount:int, price:float):
+        for i in self.stocks:
+            if i.name == name:
+                i.shares += amount
+                self.money += (amount*price)
+
 
     def salaryUpdate(self, salary:int, taxes:float):
         self.accounts[0].amount += (salary*taxes/100)

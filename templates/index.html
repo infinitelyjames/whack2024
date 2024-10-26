@@ -10,7 +10,7 @@
     <h2>Inventory</h2>
     <div class="datecontainer">
         <h3>{{ dateText }}</h3>
-        <p>Next month in 2 mins 5 seconds</p>
+        <p value="" id="countdowntext" hidden>{{ nextMonthStartsTimestamp }}</p>
     </div>
     <div class="panelcontainer">
         <image src="{{ url_for('static', filename='piechart.png') }}"></image>

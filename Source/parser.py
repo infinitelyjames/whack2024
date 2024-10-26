@@ -17,14 +17,14 @@ class DataManager:
                 arr05 = []
                 for i in range(len(arr)-1,0,-1):
                     temp = (arr[i])[:-4]
-                    arr05.append(int(temp[1:]))
+                    arr05.append(int(temp[1:])/100)
                 arr = arr05.copy()
             else:
                 arr = np.loadtxt(filename,delimiter=",", dtype=str, skiprows= 0, usecols=(3,2))
                 arr05 = []
                 for i in range(len(arr)-1,0,-1):
                     temp = (arr[i][0]+arr[i][1])[:-4]
-                    arr05.append(int(temp[1:]))
+                    arr05.append(int(temp[1:])/100)
                 arr = arr05.copy()
             DataManager.dataDict[DataManager.graphDict[strName]] = arr
 

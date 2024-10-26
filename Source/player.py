@@ -34,6 +34,8 @@ class Player:
     def makeAccount(self, name:str, amount:float, interest:float):
         a = account.Account(name, amount, interest)
         self.accounts.append(a)
+    def salaryUpdate(self, salary:int, taxes:float):
+        self.accounts[0].amount += (salary*taxes/100)
     @staticmethod
     def loadDefaultPlayer(name="Default player"):
         return Player(name, 1000)

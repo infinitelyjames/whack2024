@@ -31,8 +31,8 @@ class Player:
     def makeStockAccount(self, name:str, shares:int, sharePrice:float):
         a = account.StockAccount(name, shares, sharePrice)
         self.stocks.append(a)
-    def makeAccount(self, name:str, amount:float, interest:float):
-        a = account.Account(name, amount, interest)
+    def makeAccount(self, name:str, amount:float):
+        a = account.Account(name, amount) # interest is deprecated
         self.accounts.append(a)
     @staticmethod
     def loadDefaultPlayer(name="Default player"):

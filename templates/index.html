@@ -20,10 +20,11 @@
             <p>Cash: £{{ account.amount }}</p>
         </div>
         {% endfor %}
+        {% for share in shares %}
         <div class="playercontainer">
-            <h3>Apple Shares</h3>
-            <p>Amount: 2
-                <br>Total Value: £200 (£100 each)
+            <h3>{{ share.name }} Shares</h3>
+            <p>Amount: {{ share.shares }}
+                <br>Total Value: £{{ share.value }} (£{{ share.sharePrice }} each)
             </p>
             <div class="buttonrow" >
                 <button onclick="onBuyShare('apple')">Buy</button>
@@ -31,6 +32,7 @@
             </div>
             <p>Placeholder for image</p>
         </div>
+        {% endfor %}
 
     </div>
     <h2>Stock Market</h2>

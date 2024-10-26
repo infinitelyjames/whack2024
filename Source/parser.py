@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from Source.background import create_thread
 
 class DataManager:
     graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500"}
@@ -44,6 +45,11 @@ class DataManager:
         plt.plot(xpoints, ypoints)
         plt.savefig(f"static/{company}.png")
         plt.close()
+    
+    @staticmethod
+    def displayAllResults(month:int):
+        for company in DataManager.graphDict.values():
+            DataManager.displayResults, (month, company)
 
 def main():
     DataManager.loadFromFile()

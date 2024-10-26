@@ -27,8 +27,8 @@
                 <br>Total Value: £{{ share.value }} (£{{ share.sharePrice }} each)
             </p>
             <div class="buttonrow" >
-                <button onclick="onBuyShare('apple')">Buy</button>
-                <button onclick="onSellShare('apple')">Sell</button>
+                <button onclick="onBuyShare('{{ share.name }}', {{ share.sharePrice }})">Buy</button>
+                <button onclick="onSellShare('{{ share.name }}', {{ share.sharePrice }})">Sell</button>
             </div>
             <p>Placeholder for image</p>
         </div>

@@ -12,7 +12,8 @@ class Account:
  # deprecated
     def updateInterest(self,monthcount):
         tempintrest = self.interest[monthcount // 12]
-        self.amount *= (1+tempintrest/12*100)
+        self.amount *= (1+tempintrest/(12*100))
+        self.amount = round(self.amount,2)
     def addAmount(self, change:float):
         self.amount += change
     def removeAmount(self, change:float):

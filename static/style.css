@@ -1,5 +1,13 @@
-html { font-family: sans-serif; background: #eee; padding: 1rem; }
-body { max-width: 960px; margin: 0 auto; background: red; }
+* {
+    line-height: 100%;
+}
+
+html { font-family: sans-serif; background: #eee; padding: 0.2vmax; }
+body { 
+    background: white; 
+    padding: 0.3vmax;
+    border-radius: 1vmax;
+}
 h1 { font-family: serif; color: #377ba8; margin: 1rem 0; }
 a { color: #377ba8; }
 hr { border: none; border-top: 1px solid lightgray; }
@@ -24,3 +32,35 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 .content textarea { min-height: 12em; resize: vertical; }
 input.danger { color: #cc2f2e; }
 input[type=submit] { align-self: start; min-width: 10em; }
+
+
+.panelcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 0.5vmax;
+}
+
+.playercontainer {
+    padding: 0px 0.4vmax;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.02);
+}
+
+.datecontainer {
+    position: fixed;
+    right: 1vmax;
+    top: 1vmax;
+    background-color: rgba(0,0,0,0.2);
+    padding: 0px 0.5vmax;
+    border-radius: 0.5vmax;
+}
+
+button {
+    padding: 0.5vmax 1vmax;
+    border: none;
+    background-color: #14a1ff;
+    color: white;
+    border-radius: 0.5vmax;
+    cursor: pointer;
+}

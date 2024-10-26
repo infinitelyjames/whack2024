@@ -33,8 +33,8 @@ class Player:
                 nums.append(i.amount)
                 strings.append(i.name)
         for i in self.stocks:
-            if (i.amount > 0):
-                nums.append(i.amount)
+            if (i.shares > 0):
+                nums.append(i.value)
                 strings.append(i.name)
         y = np.array(nums)
         plt.pie(y, labels = strings)

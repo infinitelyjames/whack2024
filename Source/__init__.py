@@ -1,4 +1,4 @@
-import os, Source.player as player, time
+import os, Source.player as player, time, Source.parser as data
 from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
@@ -14,6 +14,7 @@ class App:
     def __init__(self):
         #Create a player instance:
         self.gamePlayer = player.Player.loadDefaultPlayer()
+        data.DataManager.loadFromFile()
         self.nextMonthStartsTimestamp = time.time()
         self.monthCount = 0
     

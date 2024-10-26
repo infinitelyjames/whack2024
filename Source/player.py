@@ -1,13 +1,13 @@
 import pickle
-import Source.account as account
+import account as account
 import matplotlib.pyplot as plt
 import numpy as np
+import tax_calculator
 
 class Player:
     def __init__(self, name:str, startingMoney:float):
         self.name = name
-        self.money = startingMoney
-        self.startingMoney = startingMoney
+        self.totalMoney = startingMoney
         self.accounts = []
         self.stocks = []
         self.makeAccount("Current Account", startingMoney)
@@ -39,7 +39,6 @@ class Player:
         y = np.array(nums)
         plt.pie(y, labels = strings)
         plt.savefig("static/piechart.png")
-        plt.close()
 
     def makeStockAccount(self, name:str, shares:int, sharePrice:float):
         a = account.StockAccount(name, shares, sharePrice)
@@ -52,23 +51,28 @@ class Player:
         alreadyBought = False 
         for i in self.stocks:
             if i.name == name:
-                i.shares += amount
-                i.calculateValue()
+                i.updateShares(amount)
                 alreadyBought = True
         if not alreadyBought:
             self.makeStockAccount(name, amount, price)
-        self.money -= (amount*price)
+        self.accounts[0].amount -= (amount*price)
             
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:
             if i.name == name:
-                i.shares -= amount
-                i.calculateValue()
-                self.money += (amount*price)
+                i.updateShares(-amount)
+                self.accounts[0].amount += (amount*price)
 
+    def calculateTotalMoney(self):
+        temp = 0
+        for i in self.stocks:
+            temp+=i.value
+        for i in self.accounts:
+            temp+= i.amount
+        self.totalMoney = temp
 
-    def salaryUpdate(self, salary:int, taxes:float):
-        self.accounts[0].amount += (salary*taxes/100)
+    def salaryUpdate(self, salary:int, year:int):
+        self.accounts[0].amount += salary - tax_calculator.calculate_tax(year, salary)
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

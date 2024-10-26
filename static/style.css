@@ -68,6 +68,8 @@ button {
 
 .stockthumbnailimage {
     width: 10vmax;
+    min-height: auto;
+    object-fit: cover;
 }
 
 .row {

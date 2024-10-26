@@ -39,6 +39,10 @@ class App:
         self.gamePlayer.accounts[1].updateInterest(self.monthCount)
         # TODO: add interest and change stocks
         # TODO: implement logic to prevent going beyond the timeframe of the data
+    
+    def updatePlayerStockValues(self):
+        for i in self.gamePlayer.stocks:
+            i.setSharePrice(data.DataManager.getStockPrice(self.monthCount, i.name))
 
     def background(self):
         self.updateAllImages()
@@ -48,6 +52,7 @@ class App:
                 self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
                 time.sleep(MONTHS_DURATION)
                 self.incrementMonth()
+                self.updatePlayerStockValues()
                 self.updateAllImages()
             except Exception as e:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")

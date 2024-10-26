@@ -8,6 +8,7 @@ stocks, random events, savings account, piue chart for value of investments, new
 - Graphs open in new tab enlarged when clicked
 - Do all events monthly
     - Updating stock prices and value
+    - Interest on bank accounts
     - Taxes 
     - Salaries
 - Add a place to keep record of events

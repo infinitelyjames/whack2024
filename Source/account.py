@@ -40,6 +40,9 @@ class StockAccount:
     def updateSharePrice(self, change:int):
         self.sharePrice += change
         self.calculateValue()
+    def setSharePrice(self, price:float):
+        self.sharePrice = price
+        self.calculateValue()
     def calculateValue(self):
         self.value = self.shares* self.sharePrice
     @staticmethod

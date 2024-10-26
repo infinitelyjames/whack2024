@@ -37,6 +37,7 @@ class App:
         # TODO: implement logic to prevent going beyond the timeframe of the data
 
     def background(self):
+        self.updateAllImages()
         while True: # hella nah but for now
             try:
                 print(f"INFO[Background Thread]: Starting month {self.monthCount}")

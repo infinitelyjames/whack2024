@@ -51,7 +51,7 @@ class Player:
         alreadyBought = False 
         for i in self.stocks:
             if i.name == name:
-                i.shares += amount
+                i.updateShares(amount)
                 alreadyBought = True
         if not alreadyBought:
             self.makeStockAccount(name, amount, price)
@@ -60,7 +60,7 @@ class Player:
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:
             if i.name == name:
-                i.shares -= amount
+                i.updateShares(-amount)
                 self.money += (amount*price)
 
 

@@ -12,3 +12,4 @@ stocks, random events, savings account, piue chart for value of investments, new
     - Salaries
 - Add a place to keep record of events
 - News articles (historical)
+- Hard Date Limit

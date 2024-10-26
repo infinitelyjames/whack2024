@@ -29,3 +29,23 @@ function onSellShare(shareName, sharePrice) {
     });
     delayedRefresh();
 }
+
+var nextMonthUnixTimestamp = document.getElementById("countdowntext").innerText;
+console.log(nextMonthUnixTimestamp);
+nextMonthUnixTimestamp = parseInt(nextMonthUnixTimestamp);
+
+function updateCountdown() {
+    var now = Math.floor(Date.now() / 1000);
+    var secondsLeft = nextMonthUnixTimestamp - now;
+    document.getElementById("countdowntext").innerHTML = secondsLeft + " seconds until next month";
+    document.getElementById("countdowntext").hidden = false;
+    if (secondsLeft <= 0) {
+        document.getElementById("countdowntext").innerHTML = "Loading next month...";
+        document.getElementById("countdowntext").hidden = true;
+        delayedRefresh();
+    }
+    // Update every half second
+    setTimeout(updateCountdown, 500);
+}
+
+updateCountdown();

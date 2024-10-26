@@ -1,8 +1,8 @@
 import pickle
-import account as account
+import Source.account as account
 import matplotlib.pyplot as plt
 import numpy as np
-import tax_calculator
+import Source.tax_calculator
 
 class Player:
     def __init__(self, name:str, startingMoney:float):
@@ -72,7 +72,7 @@ class Player:
         self.totalMoney = temp
 
     def salaryUpdate(self, salary:int, year:int):
-        self.accounts[0].amount += salary - tax_calculator.calculate_tax(year, salary)
+        self.accounts[0].amount += salary - Source.tax_calculator.calculate_tax(year, salary)
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

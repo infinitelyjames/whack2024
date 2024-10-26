@@ -10,14 +10,14 @@ function postRequest(url, data, callback) {
     xhr.send(JSON.stringify(data));
 }
 
-function onBuyShare(shareName) {
-    postRequest("/api/buyshare", { shareName: shareName }, function(response) {
+function onBuyShare(shareName, sharePrice) {
+    postRequest("/api/buyshare", { name: shareName, price: sharePrice }, function(response) {
         console.log(response);
     });
 }
 
-function onSellShare(shareName) {
-    postRequest("/api/sellshare", { shareName: shareName }, function(response) {
+function onSellShare(shareName, sharePrice) {
+    postRequest("/api/sellshare", { shareName: shareName, price: sharePrice }, function(response) {
         console.log(response);
     });
 }

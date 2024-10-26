@@ -17,11 +17,13 @@ class Player:
         nums = []
         strings = []
         for i in self.accounts:
-            nums.append(i.amount)
-            strings.append(i.name)
+            if (i.amount > 0):
+                nums.append(i.amount)
+                strings.append(i.name)
         for i in self.stocks:
-            nums.append(i.amount)
-            strings.append(i.name)
+            if (i.amount > 0):
+                nums.append(i.amount)
+                strings.append(i.name)
         y = np.array(nums)
         plt.pie(y, labels = strings)
         plt.savefig("static/piechart.png")

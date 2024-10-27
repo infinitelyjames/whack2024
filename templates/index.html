@@ -50,6 +50,27 @@
         {% endfor %}
 
     </div>
+    
+    <div class="goalscontainer">
+        {% if goal is not none %}
+        <div class="goalitem">
+            <div class="row goaltextcontainer">
+                <h3>{{ goal.name }}</h3>
+                <p>{{ goal.description }}</p>
+            </div>
+            <div class="row goaltextcontainer">
+                <p>Paid: £{{ goal.amountPaid }}</p>
+                <p>Required: £{{ goal.requiredAmount }}</p>
+            </div>
+            <progress value="{{ goal.amountPaid }}" max="{{ goal.requiredAmount }}" class="goalprogressbar">
+        </div>
+        {% else %}
+        <div class="goalitem centerhorizontalcontainer">
+            <p>No suitable goals available currently</p>
+        </div>
+        {% endif %}
+    </div>
+    
     <div class="eventhistorycontainer">
         {% for event in eventHistoryItems %}
         <div class="eventhistoryitem">

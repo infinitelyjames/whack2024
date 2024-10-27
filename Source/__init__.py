@@ -123,7 +123,8 @@ class App:
                 eventHistoryItems=self.gamePlayer.eventHistory,
                 totalStockChangeAbs=abs(round(self.gamePlayer.calculateStockGain(),2)),
                 totalStockGainPercentage=round(self.gamePlayer.calculateStockGainPercentage(),2),
-                stockGainOrLossText="gained" if self.gamePlayer.calculateStockGain() > 0 else "depreciated"
+                stockGainOrLossText="gained" if self.gamePlayer.calculateStockGain() > 0 else "depreciated",
+                goal=self.currentGoal,
             )
     
     def addPOSTRoutes(self):

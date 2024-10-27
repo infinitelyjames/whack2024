@@ -1,4 +1,4 @@
-import os, Source.player as player, time, Source.parser as data, Source.events as events
+import os, Source.player as player, time, Source.parser as data, Source.events as events, Source.goals as goals
 from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
@@ -25,6 +25,9 @@ class App:
                     events.Event("Bill Decrease", "Your bills decreased!", 0.04, lambda: self.gamePlayer.billDecrease()),
                     events.Event("Accident", "You had an accident!", 0.06, lambda: self.gamePlayer.accident()),
                     events.Event("Lottery Winner", "You won the lottery!", 0.005, lambda: self.gamePlayer.lotteryWinner())]
+        self.petGoal = goals.Goal("Pet", "Buying a cute companion", 1000)
+        self.carGoal = goals.Goal("Car", "Buy yourself an automobile", 5000)
+        self.houseGoal = goals.Goal("House", "Get a deposit on your house", 50000)
         self.eManager = events.EventManager(self.eventArr)
     
     def getMonth(self):

@@ -1,4 +1,4 @@
-import player
+import Source.player as player
 
 class Goal:
     def __init__(self, name:str, description:str, requiredAmount:int, requiredThreshold:int):
@@ -12,8 +12,7 @@ class Goal:
         if(self.amountPaid >= self.requiredAmount):
             return f"Congratulations, you have managed to fully purchase a {self.name}"
         else:
-            return f"Unfortunuately, you do not have enough to fully purchase a {self.name}. 
-            There is still £{self.requiredAmount - self.amountPaid} left to go"
+            return f"Unfortunuately, you do not have enough to fully purchase a {self.name}. There is still £{self.requiredAmount - self.amountPaid} left to go"
         
     def trackAmountPaid(self, amount:int):
         self.amountPaid += amount

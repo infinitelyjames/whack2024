@@ -20,7 +20,7 @@ class Goal:
             return False
         
     def trackAmountPaid(self):
-        self.amountPaid = self.moneyCounter.amount
+        return self.moneyCounter.amount
     
     def meetsRequirements(self, player:player.Player):
         requirementsMet = False

@@ -16,7 +16,7 @@ class Player:
         self.accounts = []
         self.stocks = []
         self.eventHistory = []
-        self.expenses = 0.3
+        self.expenses = 0.25
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
     
@@ -97,7 +97,7 @@ class Player:
 
     def salaryUpdate(self, salary:int, year:int):
         self.accounts[0].amount += (salary - Source.tax_calculator.calculate_tax(year, salary))/12
-        self.accounts[0].amount -= (salary *0.3)/12
+        self.accounts[0].amount -= (salary *self.expenses)/12
         self.accounts[0].amount = round(self.accounts[0].amount,2)
 
 
@@ -106,11 +106,11 @@ class Player:
 
     #Events:
     def rentIncrease(self):
-        self.expenses += 0.2*random.random()
+        self.expenses += 0.04*random.random()
         self.addEvent("Rent Increase", f"Your rent has increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def rentDecrease(self):
-        self.expenses -= 0.2*random.random()
+        self.expenses -= 0.04*random.random()
         self.addEvent("Rent Decrease", f"Your rent has decreased, driving your expenses to {self.expenses*100}% of your salary")
     
     def accident(self):
@@ -122,11 +122,11 @@ class Player:
         self.addEvent("Lottery Winner", f"You won the lottery, gaining you {random.random()*4500}")
     
     def billIncrease(self):
-        self.expenses += 0.1*random.random()
+        self.expenses += 0.02*random.random()
         self.addEvent("Bill Increase", f"Your bills have increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def billDecrease(self):
-        self.expenses -= 0.1*random.random()
+        self.expenses -= 0.02*random.random()
         self.addEvent("Bill Decrease", f"Your bills have decreased, driving your expenses to {self.expenses*100}% of your salary")
 
     @staticmethod

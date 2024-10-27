@@ -34,9 +34,12 @@ class StockAccount:
         self.shares = shares
         self.sharePrice = sharePrice
         self.value = shares*sharePrice
+        self.buyPrice = 0
+        self.percent = round(((self.value - self.buyPrice)/self.buyPrice)*100, 2)
     def updateShares(self, change:int):
         print(f"INFO: Updating {self.name} shares by {change}, was {self.shares}")
         self.shares += change
+        self.buyPrice += change * self.sharePrice
         self.calculateValue()
     def updateSharePrice(self, change:int):
         self.sharePrice += change

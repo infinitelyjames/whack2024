@@ -61,7 +61,7 @@ function updateCountdown() {
         delayedRefresh();
     }
     // Update every half second
-    setTimeout(updateCountdown, 500);
+    setTimeout(updateCountdown, 1000);
 }
 
 updateCountdown();

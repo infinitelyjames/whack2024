@@ -32,7 +32,9 @@
                     <button onclick="onSellShare('{{ share.name }}', {{ share.sharePrice }})">Sell</button>
                 </div>
             </div>
-            <img src="/static/{{ share.name }}.png" class="stockthumbnailimage">
+            <a href="/static/{{ share.name }}.png" target="_blank">
+                <img src="/static/{{ share.name }}.png" class="stockthumbnailimage">
+            </a>
         </div>
         {% endfor %}
 
@@ -50,7 +52,9 @@
                         <button onclick="onSellShare('{{ companyName }}', {{ sharePrices[monthCount] }})">Sell</button>
                     </div>
                 </div>
-                <img src="/static/{{ companyName }}.png" class="stockthumbnailimage">
+                <a href="/static/{{ companyName }}.png" target="_blank">
+                    <img src="/static/{{ companyName }}.png" class="stockthumbnailimage">
+                </a>
             </div>
         </div>
         {% endfor %}

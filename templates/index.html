@@ -36,6 +36,7 @@
                 <h3>{{ share.name }} Shares</h3>
                 <p>Amount: {{ share.shares }}
                     <br>Total Value: £{{ share.value }} (£{{ share.sharePrice }} each)
+                    <br>Change: <span class="{{ share.gainOrLoss() }}">£{{ share.calculateValueGain() }} ({{ share.calculatePercentageGain() }}%)</span>
                 </p>
                 <div class="buttonrow" >
                     <button onclick="onBuyShare('{{ share.name }}', {{ share.sharePrice }})">Buy</button>

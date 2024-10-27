@@ -1,5 +1,10 @@
 import random
 
+class EventHistoryItem:
+    def __init__(self, title : str, description : str):
+        self.title = title
+        self.description = description
+
 class Event:
     def __init__(self, title : str, description : str, probability : float, callback):
         self.title = title

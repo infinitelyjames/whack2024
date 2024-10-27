@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
 
-MONTHS_DURATION = 1 # How many seconds to spend on each month in the game
+MONTHS_DURATION = 10 # How many seconds to spend on each month in the game
 MONTH_COUNT_LIMIT=18*12 # 18 years
 STARTING_YEAR = 2005
 SALARY = 10000 # Yearly salary
@@ -130,6 +130,19 @@ class App:
             except:
                 return "Invalid price", 400
             self.gamePlayer.sellShares(name, 1, price)
+            return "Success", 200
+        # Transfer negative to current to move money from current to savings
+        @self.app.route('/api/transfermoneytocurrent', methods=['POST'])
+        def transferMoneyToCurrent():
+            print("INFO: Transfer money to current")
+            data = request.json
+            amount = data['amount']
+            print(f"INFO: Transferring {amount} to current")
+            try:
+                amount = float(amount)
+            except:
+                return "Invalid amount", 400
+            self.gamePlayer.transferMoney(amount, "Savings Account", "Current Account")
             return "Success", 200
 
     def addRoutes(self):

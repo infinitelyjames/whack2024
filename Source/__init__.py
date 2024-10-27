@@ -4,7 +4,7 @@ from Source.background import create_thread
 import traceback
 import json
 
-MONTHS_DURATION = 10 # How many seconds to spend on each month in the game
+MONTHS_DURATION = 60 # How many seconds to spend on each month in the game
 MONTH_COUNT_LIMIT=18*12 # 18 years
 STARTING_YEAR = 2005
 SALARY = 10000 # Yearly salary

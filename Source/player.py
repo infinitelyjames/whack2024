@@ -107,10 +107,12 @@ class Player:
     #Events:
     def rentIncrease(self):
         self.expenses += 0.04*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Rent Increase", f"Your rent has increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def rentDecrease(self):
         self.expenses -= 0.04*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Rent Decrease", f"Your rent has decreased, driving your expenses to {self.expenses*100}% of your salary")
     
     def accident(self):
@@ -123,10 +125,12 @@ class Player:
     
     def billIncrease(self):
         self.expenses += 0.02*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Bill Increase", f"Your bills have increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def billDecrease(self):
         self.expenses -= 0.02*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Bill Decrease", f"Your bills have decreased, driving your expenses to {self.expenses*100}% of your salary")
 
     @staticmethod

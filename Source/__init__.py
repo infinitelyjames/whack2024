@@ -6,7 +6,7 @@ import traceback
 MONTHS_DURATION = 5 # How many seconds to spend on each month in the game
 MONTH_COUNT_LIMIT=18*12 # 18 years
 STARTING_YEAR = 2005
-SALARY = 10000
+SALARY = 10000 # Yearly salary
 
 class App:
     """
@@ -38,8 +38,6 @@ class App:
         if (self.monthCount >= MONTH_COUNT_LIMIT): return
         self.monthCount += 1
         self.gamePlayer.accounts[1].updateInterest(self.monthCount)
-        # TODO: add interest and change stocks
-        # TODO: implement logic to prevent going beyond the timeframe of the data
     
     def updatePlayerStockValues(self):
         for i in self.gamePlayer.stocks:
@@ -80,7 +78,8 @@ class App:
                 playerShares=self.gamePlayer.stocks,
                 nextMonthStartsTimestamp=self.nextMonthStartsTimestamp,
                 allShares=data.DataManager.dataDict,
-                netWorth=round(self.gamePlayer.calculateTotalMoney(),2)
+                netWorth=round(self.gamePlayer.calculateTotalMoney(),2),
+                yearlySalary=SALARY,
             )
     
     def addPOSTRoutes(self):

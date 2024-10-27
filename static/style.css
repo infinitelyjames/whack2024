@@ -79,3 +79,19 @@ button {
     justify-content: start;
     gap: 0.5vmax;
 }
+
+.eventhistorycontainer {
+    height: fit-content;
+    max-height: 25vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vmax;
+    margin: 0.5vmax 0;
+}
+
+.eventhistoryitem {
+    padding: 0.1vmax 0.5vmax;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 0.8vmax;
+}

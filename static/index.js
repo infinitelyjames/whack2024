@@ -46,6 +46,14 @@ function onTransferToSavingsAccount() {
     delayedRefresh();
 }
 
+function onTransferToGoal() {
+    let amount = document.getElementById("transferAmount").value;
+    postRequest("/api/transfermoneytogoal", { amount: amount }, function(response) {
+        console.log(response);
+    });
+    delayedRefresh();
+}
+
 var nextMonthUnixTimestamp = document.getElementById("countdowntext").innerText;
 console.log(nextMonthUnixTimestamp);
 nextMonthUnixTimestamp = parseInt(nextMonthUnixTimestamp);

@@ -41,6 +41,8 @@ class StockAccount:
         self.shares += change
         if(change >0):
             self.buyPrice += change * self.sharePrice
+        elif(change < 0):
+            self.buyPrice -= (self.buyPrice/self.shares)*change
         self.calculateValue()
     def updateSharePrice(self, change:int):
         self.sharePrice += change

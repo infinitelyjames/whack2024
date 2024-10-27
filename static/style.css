@@ -96,10 +96,10 @@ button {
     border-radius: 0.8vmax;
 }
 
-.gained {
+.gained, .gain {
     color: green;
 }
 
-.depreciated {
+.depreciated, .loss {
     color: red;
 }

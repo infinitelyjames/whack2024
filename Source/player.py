@@ -16,7 +16,7 @@ class Player:
         self.accounts = []
         self.stocks = []
         self.eventHistory = []
-        self.expenses = 0.3
+        self.expenses = 0.25
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
     
@@ -106,27 +106,31 @@ class Player:
 
     #Events:
     def rentIncrease(self):
-        self.expenses += 0.2*random.random()
+        self.expenses += 0.04*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Rent Increase", f"Your rent has increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def rentDecrease(self):
-        self.expenses -= 0.2*random.random()
+        self.expenses -= 0.04*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Rent Decrease", f"Your rent has decreased, driving your expenses to {self.expenses*100}% of your salary")
     
     def accident(self):
         self.accounts[0].amount -= random.random()*1500
-        self.addEvent("Accident", f"You had an accident, costing you {random.random()*1500}")
+        self.addEvent("Accident", f"You had an accident, costing you {round(random.random()*1500,2)}")
 
     def lotteryWinner(self):
         self.accounts[0].amount += random.random()*4500
-        self.addEvent("Lottery Winner", f"You won the lottery, gaining you {random.random()*4500}")
+        self.addEvent("Lottery Winner", f"You won the lottery, gaining you {round(random.random()*4500,2)}")
     
     def billIncrease(self):
-        self.expenses += 0.1*random.random()
+        self.expenses += 0.02*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Bill Increase", f"Your bills have increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def billDecrease(self):
-        self.expenses -= 0.1*random.random()
+        self.expenses -= 0.02*random.random()
+        self.expenses = round(self.expenses, 2)
         self.addEvent("Bill Decrease", f"Your bills have decreased, driving your expenses to {self.expenses*100}% of your salary")
 
     @staticmethod

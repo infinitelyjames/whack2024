@@ -7,7 +7,7 @@ from Source.background import create_thread
 matplotlib.use('Agg') # DO NOT REMOVE, THIS IS NEEDED FOR THREAD-SAFETY
 
 class DataManager:
-    graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500"}
+    graphDict = {"1MSFT.csv":"Microsoft", "1TZOO.csv":"Travel Zoo",  "FTSE 100 Historical Data.csv":"FTSE 100","S&P 500 Historical Data.csv":"S&P 500", "2BB.csv":"BlackBerry"}
     dataDict = {}
 
     @staticmethod
@@ -23,6 +23,13 @@ class DataManager:
                 arr05 = []
                 for i in range(len(arr)-1,-1,-1):
                     temp = (arr[i])[:-4]
+                    arr05.append(int(temp[1:]))
+                arr = arr05.copy()
+            elif strName[0]=="2":
+                arr = np.loadtxt(filename, delimiter=",", dtype=str, skiprows= 0, usecols=2)
+                arr05 = []
+                for i in range(len(arr)-1,0,-1):
+                    temp = (arr[i])[:-5]
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
             else:
@@ -67,8 +74,8 @@ class DataManager:
 
 def main():
     DataManager.loadFromFile()
-    DataManager.displayResults(29, 'Microsoft')
-    print(DataManager.getStockPrice(19, "Microsoft"))
+    DataManager.displayResults(29, 'Blackberry')
+    print(DataManager.getStockPrice(19, "Blackberry"))
 
 if __name__ == "__main__":
     main()

@@ -56,6 +56,7 @@ class App:
                 time.sleep(MONTHS_DURATION)
                 self.incrementMonth()
                 self.updatePlayerStockValues()
+                self.updateSalary()
                 self.updateAllImages()
             except Exception as e:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")

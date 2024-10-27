@@ -172,6 +172,13 @@ class App:
             print("INFO: Transfer money to goal")
             data = request.json
             amount = data['amount']
+            print(f"INFO: Transferring {amount} to goal")
+            try:
+                amount = float(amount)
+            except:
+                return "Invalid amount", 400
+            self.transferMoneyToGoal(amount)
+            return "Success", 200
 
     def addRoutes(self):
         if (self.app == None): raise Exception("App not initialised")

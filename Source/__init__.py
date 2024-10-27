@@ -64,6 +64,10 @@ class App:
     def updateSalary(self):
         self.gamePlayer.salaryUpdate(SALARY, self.getYear())
 
+    def transferMoneyToGoal(self):
+        if not self.currentGoal == None:
+            self.gamePlayer.transferMoney(self.gamePlayer.accounts[0], self.currentGoal.moneyCounter)
+
     def checkGoals(self):
         for i in self.goalArr:
             if i == self.currentGoal:
@@ -161,7 +165,7 @@ class App:
                 amount = float(amount)
             except:
                 return "Invalid amount", 400
-            self.gamePlayer.transferMoney(amount, "Savings Account", "Current Account")
+            self.gamePlayer.transferMoney(amount, self.gamePlayer.accounts[1], self.gamePlayer.accounts[0])
             return "Success", 200
 
     def addRoutes(self):

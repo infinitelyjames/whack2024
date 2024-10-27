@@ -19,7 +19,8 @@ class Player:
         self.expenses = 0.25
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
-
+        self.stock_purchased=0
+        self.stock_change=0
     @staticmethod
     def loadDefaultPlayer(name="John"):
         player = Player(name, 10000)
@@ -68,22 +69,15 @@ class Player:
             if  alreadyBought == False:
                 self.makeStockAccount(name, amount, price)
             self.accounts[0].amount -= (amount*price)
+            self.stock_purchased += (amount*price)
             self.stocks[len(self.stocks)-1].buyPrice +=  (amount*price)
+
             
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:
             if i.name == name:
                 i.updateShares(-amount)
                 self.accounts[0].amount += (amount*price)
-
-    def calculateTotalMoney(self):
-        temp = 0
-        for i in self.stocks:
-            temp+=i.value
-        for i in self.accounts:
-            temp+= i.amount
-        self.totalMoney = temp
-        return self.totalMoney
     def calculateStockGain(self):
         temp = 0
         for i in self.stocks:
@@ -95,6 +89,15 @@ class Player:
             return (self.stock_change/self.stock_purchased)*100
         except ZeroDivisionError:
             return 0
+
+    def calculateTotalMoney(self):
+        temp = 0
+        for i in self.stocks:
+            temp+=i.value
+        for i in self.accounts:
+            temp+= i.amount
+        self.totalMoney = temp
+        return self.totalMoney
 
     def transferMoney(self, amount:float, acOne:str, acTwo:str):
         temp1 = None
@@ -108,8 +111,10 @@ class Player:
         temp2.addAmount(amount)
 
     def salaryUpdate(self, salary:int, year:int):
-        self.accounts[0].amount += (salary - Source.tax_calculator.calculate_tax(year, salary))/12
-        self.accounts[0].amount -= (salary *self.expenses)/12
+        temp = salary*(1.02**(year-2005))
+        temp = round(temp, 2)
+        self.accounts[0].amount += (temp - Source.tax_calculator.calculate_tax(year, temp))/12
+        self.accounts[0].amount -= (temp *self.expenses)/12
         self.accounts[0].amount = round(self.accounts[0].amount,2)
 
 

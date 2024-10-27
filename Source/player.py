@@ -102,7 +102,7 @@ class Player:
 
 
     def addEvent(self, title:str, description:str):
-        self.eventHistory.append(EventHistoryItem(title, description))
+        self.eventHistory.insert(0, EventHistoryItem(title, description))
 
     #Events:
     def rentIncrease(self):

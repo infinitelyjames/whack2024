@@ -1,12 +1,14 @@
+import player
+
 class Goal:
-    def __init__(self, name:str, description:str, requiredAmount:int, minDeposit:int):
+    def __init__(self, name:str, description:str, requiredAmount:int, requiredThreshold:int):
         self.name = name
         self.description = description
         self.requiredAmount = requiredAmount
-        self.minDeposit = minDeposit
+        self.requiredThreshold = requiredThreshold
         self.amountPaid = 0
     
-    def trackCurrentAmount(self):
+    def returnResponse(self):
         if(self.amountPaid >= self.requiredAmount):
             return f"Congratulations, you have managed to fully purchase a {self.name}"
         else:
@@ -15,3 +17,9 @@ class Goal:
         
     def trackAmountPaid(self, amount:int):
         self.amountPaid += amount
+    
+    def meetsRequirements(self, player:player.Player):
+        requirementsMet = False
+        if(player.calculateTotalMoney()>=self.requiredThreshold):
+            requirementsMet = True
+        return requirementsMet

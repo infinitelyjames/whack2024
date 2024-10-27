@@ -102,7 +102,7 @@ class Player:
 
 
     def addEvent(self, title:str, description:str):
-        self.eventHistory.append(EventHistoryItem(title, description))
+        self.eventHistory.insert(0, EventHistoryItem(title, description))
 
     #Events:
     def rentIncrease(self):
@@ -117,11 +117,11 @@ class Player:
     
     def accident(self):
         self.accounts[0].amount -= random.random()*1500
-        self.addEvent("Accident", f"You had an accident, costing you {round(random.random()*1500,2)}")
+        self.addEvent("Accident", f"You had an accident, costing you £{round(random.random()*1500,2)}")
 
     def lotteryWinner(self):
         self.accounts[0].amount += random.random()*4500
-        self.addEvent("Lottery Winner", f"You won the lottery, gaining you {round(random.random()*4500,2)}")
+        self.addEvent("Lottery Winner", f"You won the lottery, gaining you £{round(random.random()*4500,2)}")
     
     def billIncrease(self):
         self.expenses += 0.02*random.random()

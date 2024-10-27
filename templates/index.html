@@ -42,6 +42,14 @@
         {% endfor %}
 
     </div>
+    <div class="eventhistorycontainer">
+        {% for event in eventHistoryItems %}
+        <div class="eventhistoryitem">
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
     <h2>Stock Market</h2>
     <div class="panelcontainer">
         {% for companyName, sharePrices in allShares.items() %}

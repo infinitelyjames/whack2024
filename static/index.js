@@ -30,6 +30,22 @@ function onSellShare(shareName, sharePrice) {
     delayedRefresh();
 }
 
+function onTransferToCurrentAccount() {
+    let amount = document.getElementById("transferAmount").value;
+    postRequest("/api/transfermoneytocurrent", { amount: amount }, function(response) {
+        console.log(response);
+    });
+    delayedRefresh();
+}
+
+function onTransferToSavingsAccount() {
+    let amount = document.getElementById("transferAmount").value;
+    postRequest("/api/transfermoneytocurrent", { amount: "-"+amount }, function(response) {
+        console.log(response);
+    });
+    delayedRefresh();
+}
+
 var nextMonthUnixTimestamp = document.getElementById("countdowntext").innerText;
 console.log(nextMonthUnixTimestamp);
 nextMonthUnixTimestamp = parseInt(nextMonthUnixTimestamp);

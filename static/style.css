@@ -95,3 +95,11 @@ button {
     background-color: rgba(0,0,0,0.05);
     border-radius: 0.8vmax;
 }
+
+.gained {
+    color: green;
+}
+
+.depreciated {
+    color: red;
+}

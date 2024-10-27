@@ -99,6 +99,9 @@ class App:
                 newsURL=self.getBBCNewsWayBackURL(),
                 expensesPercentage=round(self.gamePlayer.expenses*100,2),
                 eventHistoryItems=self.gamePlayer.eventHistory,
+                totalStockChangeAbs=abs(round(self.gamePlayer.calculateStockGain(),2)),
+                totalStockGainPercentage=round(self.gamePlayer.calculateStockGainPercentage(),2),
+                stockGainOrLossText="gained" if self.gamePlayer.calculateStockGain() > 0 else "depreciated"
             )
     
     def addPOSTRoutes(self):
@@ -127,6 +130,19 @@ class App:
             except:
                 return "Invalid price", 400
             self.gamePlayer.sellShares(name, 1, price)
+            return "Success", 200
+        # Transfer negative to current to move money from current to savings
+        @self.app.route('/api/transfermoneytocurrent', methods=['POST'])
+        def transferMoneyToCurrent():
+            print("INFO: Transfer money to current")
+            data = request.json
+            amount = data['amount']
+            print(f"INFO: Transferring {amount} to current")
+            try:
+                amount = float(amount)
+            except:
+                return "Invalid amount", 400
+            self.gamePlayer.transferMoney(amount, "Savings Account", "Current Account")
             return "Success", 200
 
     def addRoutes(self):

@@ -78,6 +78,7 @@ class Player:
             if i.name == name:
                 i.updateShares(-amount)
                 self.accounts[0].amount += (amount*price)
+                self.stock_purchased -= (amount*price)
     def calculateStockGain(self):
         temp = 0
         for i in self.stocks:

@@ -17,7 +17,7 @@ class Account:
     def addAmount(self, change:float):
         self.amount += change
     def removeAmount(self, change:float):
-        self.addAmount -= change
+        self.amount -= change
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

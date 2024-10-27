@@ -35,7 +35,7 @@ class StockAccount:
         self.sharePrice = sharePrice
         self.value = shares*sharePrice
         self.buyPrice = 0
-        self.percent = round(((self.value - self.buyPrice)/self.buyPrice)*100, 2)
+        self.percent = round(((self.value - self.buyPrice)/(self.buyPrice+0.0001))*100, 2)
     def updateShares(self, change:int):
         print(f"INFO: Updating {self.name} shares by {change}, was {self.shares}")
         self.shares += change
@@ -49,6 +49,13 @@ class StockAccount:
         self.calculateValue()
     def calculateValue(self):
         self.value = self.shares* self.sharePrice
+    def calculatePercentageGain(self):
+        self.percent = round(((self.value - self.buyPrice)/(self.buyPrice+0.0001))*100, 2)
+        return self.percent
+    def calculateValueGain(self):
+        return self.value - self.buyPrice
+    def gainOrLoss(self):
+        return "gain" if self.calculateValueGain() > 0 else "loss"
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

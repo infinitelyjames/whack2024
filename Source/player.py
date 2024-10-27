@@ -81,6 +81,12 @@ class Player:
         for i in self.stocks:
             temp+=i.value
         self.stock_change = temp - self.stock_purchased
+        return self.stock_change
+    def calculateStockGainPercentage(self):
+        try:
+            return (self.stock_change/self.stock_purchased)*100
+        except ZeroDivisionError:
+            return 0
 
     def calculateTotalMoney(self):
         temp = 0

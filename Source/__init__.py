@@ -26,9 +26,9 @@ class App:
                     events.Event("Accident", "You had an accident!", 0.06, lambda: self.gamePlayer.accident()),
                     events.Event("Lottery Winner", "You won the lottery!", 0.005, lambda: self.gamePlayer.lotteryWinner())]
         self.eManager = events.EventManager(self.eventArr)
-        self.petGoal = goals.Goal("Pet", "Buying a cute companion", 1000, 500)
-        self.carGoal = goals.Goal("Car", "Buy yourself an automobile", 7000, 3000)
-        self.houseGoal = goals.Goal("House", "Get a deposit on your house", 150000, 50000)
+        self.goalArr = [goals.Goal("Pet", "Buying a cute companion", 1000, 500), 
+                        goals.Goal("Car", "Buy yourself an automobile", 7000, 3000),
+                        goals.Goal("House", "Get a deposit on your house", 150000, 50000)]
     
     def getMonth(self):
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][self.monthCount % 12]

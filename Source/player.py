@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import Source.tax_calculator
 import matplotlib
+import random
 
 matplotlib.use('Agg') # DO NOT REMOVE, THIS IS NEEDED FOR THREAD-SAFETY
 
@@ -13,6 +14,7 @@ class Player:
         self.totalMoney = startingMoney
         self.accounts = []
         self.stocks = []
+        self.expenses = 0.3
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
     
@@ -93,7 +95,25 @@ class Player:
 
     def salaryUpdate(self, salary:int, year:int):
         self.accounts[0].amount += (salary - Source.tax_calculator.calculate_tax(year, salary))/12
+        self.accounts[0].amounts -= (salary *0.3)/12
         self.accounts[0].amount = round(self.accounts[0].amount,2)
+
+    #Events:
+    def rentIncrease(self):
+        self.expenses += 0.2*random.random()
+    
+    def rentDecrease(self):
+        self.expenses -= 0.2*random.random()
+    
+    def accident(self):
+        self.accounts[0].amount -= random.random()*1500
+    
+    def billIncrease(self):
+        self.expenses += 0.1*random.random()
+    
+    def billDecrease(self):
+        self.expenses -= 0.1*random.random()
+
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

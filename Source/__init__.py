@@ -64,9 +64,9 @@ class App:
     def updateSalary(self):
         self.gamePlayer.salaryUpdate(SALARY, self.getYear())
 
-    def transferMoneyToGoal(self):
+    def transferMoneyToGoal(self, amount:float):
         if not self.currentGoal == None:
-            self.gamePlayer.transferMoney(self.gamePlayer.accounts[0], self.currentGoal.moneyCounter)
+            self.gamePlayer.transferMoney(amount, self.gamePlayer.accounts[0], self.currentGoal.moneyCounter)
 
     def checkGoals(self):
         for i in self.goalArr:

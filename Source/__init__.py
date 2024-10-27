@@ -1,4 +1,4 @@
-import os, Source.player as player, time, Source.parser as data
+import os, Source.player as player, time, Source.parser as data, Source.events as events
 from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
@@ -19,6 +19,13 @@ class App:
         data.DataManager.loadFromFile()
         self.nextMonthStartsTimestamp = time.time()
         self.monthCount = 0
+        self.eventArr = [events.Event("Rent Increase", "Your rent increased!", 0.05, self.gamePlayer.rentIncrease()),
+                    events.Event("Rent Decrease", "Your rent decreased!", 0.01, self.gamePlayer.rentDecrease()),
+                    events.Event("Bill Increase", "Your bills increased!", 0.08, self.gamePlayer.billIncrease()),
+                    events.Event("Bill Decrease", "Your bills decreased!", 0.02, self.gamePlayer.billDecrease()),
+                    events.Event("Accident", "You had an accident!", 0.06, self.gamePlayer.accident()),
+                    events.Event("Lottery Winner", "You won the lottery!", 0.005, self.gamePlayer.lotteryWinner())]
+        self.eManager = events.eventManager(eventArr)
     
     def getMonth(self):
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][self.monthCount % 12]
@@ -63,6 +70,7 @@ class App:
                 self.updatePlayerStockValues()
                 self.updateSalary()
                 self.updateAllImages()
+                self.eManager.randomlyTriggerEvents()
             except Exception as e:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")
                 traceback.print_exc()

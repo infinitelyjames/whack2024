@@ -107,6 +107,9 @@ class Player:
     
     def accident(self):
         self.accounts[0].amount -= random.random()*1500
+
+    def lotteryWinner(self):
+        self.accounts[0].amount += random.random()*4500
     
     def billIncrease(self):
         self.expenses += 0.1*random.random()

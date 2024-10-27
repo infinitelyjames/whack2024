@@ -19,12 +19,12 @@ class App:
         data.DataManager.loadFromFile()
         self.nextMonthStartsTimestamp = time.time()
         self.monthCount = 0
-        self.eventArr = [events.Event("Rent Increase", "Your rent increased!", 0.05, self.gamePlayer.rentIncrease()),
-                    events.Event("Rent Decrease", "Your rent decreased!", 0.01, self.gamePlayer.rentDecrease()),
-                    events.Event("Bill Increase", "Your bills increased!", 0.08, self.gamePlayer.billIncrease()),
-                    events.Event("Bill Decrease", "Your bills decreased!", 0.02, self.gamePlayer.billDecrease()),
-                    events.Event("Accident", "You had an accident!", 0.06, self.gamePlayer.accident()),
-                    events.Event("Lottery Winner", "You won the lottery!", 0.005, self.gamePlayer.lotteryWinner())]
+        self.eventArr = [events.Event("Rent Increase", "Your rent increased!", 0.05, lambda: self.gamePlayer.rentIncrease()),
+                    events.Event("Rent Decrease", "Your rent decreased!", 0.01, lambda: self.gamePlayer.rentDecrease()),
+                    events.Event("Bill Increase", "Your bills increased!", 0.08, lambda: self.gamePlayer.billIncrease()),
+                    events.Event("Bill Decrease", "Your bills decreased!", 0.02, lambda: self.gamePlayer.billDecrease()),
+                    events.Event("Accident", "You had an accident!", 0.06, lambda: self.gamePlayer.accident()),
+                    events.Event("Lottery Winner", "You won the lottery!", 0.005, lambda: self.gamePlayer.lotteryWinner())]
         self.eManager = events.EventManager(self.eventArr)
     
     def getMonth(self):

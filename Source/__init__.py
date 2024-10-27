@@ -2,6 +2,7 @@ import os, Source.player as player, time, Source.parser as data, Source.events a
 from flask import Flask, render_template, request
 from Source.background import create_thread
 import traceback
+import json
 
 MONTHS_DURATION = 10 # How many seconds to spend on each month in the game
 MONTH_COUNT_LIMIT=18*12 # 18 years
@@ -179,6 +180,18 @@ class App:
             except:
                 return "Invalid amount", 400
             self.transferMoneyToGoal(amount)
+            return "Success", 200
+        @self.app.route("/api/takingloan", methods=['POST'])
+        def takeLoan():
+            print("INFO: Taking loan")
+            data = request.json
+            amount = data['amount']
+            print(f"INFO: Taking a loan of {amount}")
+            try:
+                amount = float(amount)
+            except:
+                return "Invalid amount", 400
+            self.gamePlayer.takeLoan(amount)
             return "Success", 200
 
     def addRoutes(self):

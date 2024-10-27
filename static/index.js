@@ -48,6 +48,14 @@ function onTransferToSavingsAccount() {
 
 function onTransferToGoal() {
     let amount = document.getElementById("transferAmount").value;
+    postRequest("/api/takeloan", { amount: amount }, function(response) {
+        console.log(response);
+    });
+    delayedRefresh();
+}
+
+function onTakeLoan(){
+    let amount = document.getElementById("transferAmount").value;
     postRequest("/api/transfermoneytogoal", { amount: amount }, function(response) {
         console.log(response);
     });

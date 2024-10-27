@@ -17,6 +17,7 @@ class Player:
         self.stocks = []
         self.eventHistory = []
         self.expenses = 0.25
+        self.repayments = 0
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
         self.stock_purchased=0
@@ -110,8 +111,12 @@ class Player:
         temp = round(temp, 2)
         self.accounts[0].amount += (temp - Source.tax_calculator.calculate_tax(year, temp))/12
         self.accounts[0].amount -= (temp *self.expenses)/12
+        self.accounts[0].amount -= self.repayments
         self.accounts[0].amount = round(self.accounts[0].amount,2)
 
+    def takeLoan(self, amount:int):
+        self.accounts[0] += amount
+        self.repayments += amount/20
 
     def addEvent(self, title:str, description:str):
         self.eventHistory.insert(0, EventHistoryItem(title, description))

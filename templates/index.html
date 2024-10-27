@@ -16,6 +16,12 @@
         <h3>{{ dateText }}</h3>
         <p value="" id="countdowntext" hidden>{{ nextMonthStartsTimestamp }}</p>
     </div>
+    <div class="row">
+        <h3>Transfer £</h3>
+        <input type="number" id="transferAmount" value="0" min="0" step="1">
+        <button onclick="onTransferToCurrentAccount()">To Current Account</button>
+        <button onclick="onTransferToSavingsAccount()">To Savings</button>
+    </div>
     <div class="panelcontainer">
         <image src="{{ url_for('static', filename='piechart.png') }}"></image>
         {% for account in accounts %}

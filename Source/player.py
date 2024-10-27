@@ -19,7 +19,8 @@ class Player:
         self.expenses = 0.25
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
-    
+        self.stock_purchased=0
+        self.stock_change=0
     @staticmethod
     def loadDefaultPlayer(name="John"):
         player = Player(name, 10000)
@@ -68,12 +69,18 @@ class Player:
             if  alreadyBought == False:
                 self.makeStockAccount(name, amount, price)
             self.accounts[0].amount -= (amount*price)
+            self.stock_purchased += (amount*price)
             
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:
             if i.name == name:
                 i.updateShares(-amount)
                 self.accounts[0].amount += (amount*price)
+    def calculateStockGain(self):
+        temp = 0
+        for i in self.stocks:
+            temp+=i.value
+        self.stock_change = temp - self.stock_purchased
 
     def calculateTotalMoney(self):
         temp = 0

@@ -167,6 +167,11 @@ class App:
                 return "Invalid amount", 400
             self.gamePlayer.transferMoney(amount, self.gamePlayer.accounts[1], self.gamePlayer.accounts[0])
             return "Success", 200
+        @self.app.route("/api/transfermoneytogoal", methods=['POST'])
+        def transferMoneyToGoal():
+            print("INFO: Transfer money to goal")
+            data = request.json
+            amount = data['amount']
 
     def addRoutes(self):
         if (self.app == None): raise Exception("App not initialised")

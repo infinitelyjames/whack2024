@@ -5,6 +5,7 @@ import numpy as np
 import Source.tax_calculator
 import matplotlib
 import random
+from Source.events import EventHistoryItem
 
 matplotlib.use('Agg') # DO NOT REMOVE, THIS IS NEEDED FOR THREAD-SAFETY
 
@@ -14,6 +15,7 @@ class Player:
         self.totalMoney = startingMoney
         self.accounts = []
         self.stocks = []
+        self.eventHistory = []
         self.expenses = 0.3
         self.makeAccount("Current Account", startingMoney)
         self.makeAccount("Savings Account", 0)
@@ -98,24 +100,34 @@ class Player:
         self.accounts[0].amounts -= (salary *0.3)/12
         self.accounts[0].amount = round(self.accounts[0].amount,2)
 
+
+    def addEvent(self, title:str, description:str):
+        self.eventHistory.append(EventHistoryItem(title, description))
+
     #Events:
     def rentIncrease(self):
         self.expenses += 0.2*random.random()
+        self.addEvent("Rent Increase", f"Your rent has increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def rentDecrease(self):
         self.expenses -= 0.2*random.random()
+        self.addEvent("Rent Decrease", f"Your rent has decreased, driving your expenses to {self.expenses*100}% of your salary")
     
     def accident(self):
         self.accounts[0].amount -= random.random()*1500
+        self.addEvent("Accident", f"You had an accident, costing you {random.random()*1500}")
 
     def lotteryWinner(self):
         self.accounts[0].amount += random.random()*4500
+        self.addEvent("Lottery Winner", f"You won the lottery, gaining you {random.random()*4500}")
     
     def billIncrease(self):
         self.expenses += 0.1*random.random()
+        self.addEvent("Bill Increase", f"Your bills have increased, driving your expenses to {self.expenses*100}% of your salary")
     
     def billDecrease(self):
         self.expenses -= 0.1*random.random()
+        self.addEvent("Bill Decrease", f"Your bills have decreased, driving your expenses to {self.expenses*100}% of your salary")
 
     @staticmethod
     def loadFromFile(filename:str):

@@ -21,7 +21,7 @@ class DataManager:
             if strName[0]=="1":
                 arr = np.loadtxt(filename, delimiter=",", dtype=str, skiprows= 0, usecols=2)
                 arr05 = []
-                for i in range(len(arr)-1,-1,-1):
+                for i in range(len(arr)-1,0,-1):
                     temp = (arr[i])[:-4]
                     arr05.append(int(temp[1:]))
                 arr = arr05.copy()
@@ -35,7 +35,7 @@ class DataManager:
             else:
                 arr = np.loadtxt(filename,delimiter=",", dtype=str, skiprows= 0, usecols=(3,2))
                 arr05 = []
-                for i in range(len(arr)-1,-1,-1):
+                for i in range(len(arr)-1,0,-1):
                     temp = (arr[i][0]+arr[i][1])[:-4]
                     arr05.append(int(temp[1:])/100)
                 arr = arr05.copy()

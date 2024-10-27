@@ -97,7 +97,7 @@ class Player:
 
     def salaryUpdate(self, salary:int, year:int):
         self.accounts[0].amount += (salary - Source.tax_calculator.calculate_tax(year, salary))/12
-        self.accounts[0].amounts -= (salary *0.3)/12
+        self.accounts[0].amount -= (salary *0.3)/12
         self.accounts[0].amount = round(self.accounts[0].amount,2)
 
 

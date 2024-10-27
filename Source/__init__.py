@@ -29,6 +29,7 @@ class App:
         self.goalArr = [goals.Goal("Pet", "Buying a cute companion", 1000, 500), 
                         goals.Goal("Car", "Buy yourself an automobile", 7000, 3000),
                         goals.Goal("House", "Get a deposit on your house", 150000, 50000)]
+        self.currentGoal = None
     
     def getMonth(self):
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][self.monthCount % 12]
@@ -63,6 +64,19 @@ class App:
     def updateSalary(self):
         self.gamePlayer.salaryUpdate(SALARY, self.getYear())
 
+    def checkGoals(self):
+        for i in self.goalArr:
+            if i == self.currentGoal:
+                if(i.returnResponse()):
+                    self.currentGoal = None
+                    continue
+                else:
+                    break
+            if(i.meetsRequirements(self.gamePlayer) and i.completed == False and self.currentGoal == None):
+                self.currentGoal = i
+
+    
+
     def background(self):
         self.updateAllImages()
         while True: # hella nah but for now
@@ -75,6 +89,7 @@ class App:
                 self.updateSalary()
                 self.updateAllImages()
                 self.eManager.randomlyTriggerEvents()
+                self.checkGoals()
             except Exception as e:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")
                 traceback.print_exc()

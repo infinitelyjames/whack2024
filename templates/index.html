@@ -6,25 +6,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Hi there!</h1>
-    <h2>Inventory</h2>
-    <h3>Your total net worth is £{{ netWorth }}</h3>
-    <h3>Your stocks have <span class="{{ stockGainOrLossText }}">{{ stockGainOrLossText }} £{{ totalStockChangeAbs }} ({{totalStockGainPercentage}}%)</span></h3>
-    <h3>Your expected yearly salary is £{{ yearlySalary }} (before tax)</h3>
-    <h3>Your expenses are currently {{ expensesPercentage }}% of your salary.</h3>
-    <div class="datecontainer">
-        <h3>{{ dateText }}</h3>
-        <p value="" id="countdowntext" hidden>{{ nextMonthStartsTimestamp }}</p>
-    </div>
-    <div class="row">
-        <h3>Transfer £</h3>
-        <input type="number" id="transferAmount" value="0" min="0" step="1">
-        <button onclick="onTransferToCurrentAccount()">To Current Account</button>
-        <button onclick="onTransferToSavingsAccount()">To Savings</button>
-        <button onclick="onTransferToGoal()">To Goal</button>
+   
+    <div class="row" style="justify-content: space-between;">
+        <div>
+            <h1>Hi there!</h1>
+            <h2>Inventory</h2>
+            <h3>Your total net worth is £{{ netWorth }}</h3>
+            <h3>Your stocks have <span class="{{ stockGainOrLossText }}">{{ stockGainOrLossText }} £{{ totalStockChangeAbs }} ({{totalStockGainPercentage}}%)</span></h3>
+            <h3>Your expected yearly salary is £{{ yearlySalary }} (before tax)</h3>
+            <h3>Your expenses are currently {{ expensesPercentage }}% of your salary.</h3>
+            <div class="datecontainer">
+                <h3>{{ dateText }}</h3>
+                <p value="" id="countdowntext" hidden>{{ nextMonthStartsTimestamp }}</p>
+            </div>
+            <div class="row">
+                <h3>Transfer £</h3>
+                <input type="number" id="transferAmount" value="0" min="0" step="1">
+                <button onclick="onTransferToCurrentAccount()">To Current Account</button>
+                <button onclick="onTransferToSavingsAccount()">To Savings</button>
+                <button onclick="onTransferToGoal()">To Goal</button>
+            </div>
+        </div>
+        <image src="{{ url_for('static', filename='piechart.png') }}" class="wealthdistributionimage"></image>
     </div>
     <div class="panelcontainer">
-        <image src="{{ url_for('static', filename='piechart.png') }}"></image>
         {% for account in accounts %}
         <div class="playercontainer">
             <h3>{{ account.name }}</h3>

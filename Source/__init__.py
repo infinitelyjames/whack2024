@@ -72,6 +72,7 @@ class App:
         for i in self.goalArr:
             if i == self.currentGoal:
                 if(i.returnResponse()):
+                    self.gamePlayer.addEvent("Goal Completed", f"Congratulations! You have completed the goal {i.name}. {i.description}")
                     self.currentGoal = None
                     continue
                 else:

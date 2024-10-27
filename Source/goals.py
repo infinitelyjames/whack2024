@@ -20,6 +20,6 @@ class Goal:
     
     def meetsRequirements(self, player:player.Player):
         requirementsMet = False
-        if(player.calculateTotalMoney>=self.requiredThreshold):
+        if(player.calculateTotalMoney()>=self.requiredThreshold):
             requirementsMet = True
         return requirementsMet

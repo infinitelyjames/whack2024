@@ -43,6 +43,9 @@ class App:
     def updatePlayerStockValues(self):
         for i in self.gamePlayer.stocks:
             i.setSharePrice(data.DataManager.getStockPrice(self.monthCount, i.name))
+    
+    def updateSalary(self):
+        self.gamePlayer.salaryUpdate()
 
     def background(self):
         self.updateAllImages()

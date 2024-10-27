@@ -91,7 +91,7 @@ class Player:
         temp2.addAmount(amount)
 
     def salaryUpdate(self, salary:int, year:int):
-        self.accounts[0].amount += salary - Source.tax_calculator.calculate_tax(year, salary)
+        self.accounts[0].amount += round((salary - Source.tax_calculator.calculate_tax(year, salary))/12,2)
     @staticmethod
     def loadFromFile(filename:str):
         with open(filename, "rb") as file:

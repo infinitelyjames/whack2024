@@ -68,10 +68,10 @@ class Player:
         if(alreadyNegative == False):
             if  alreadyBought == False:
                 self.makeStockAccount(name, amount, price)
+                self.stocks[len(self.stocks)-1].buyPrice +=  (amount*price)
             self.accounts[0].amount -= (amount*price)
             self.stock_purchased += (amount*price)
-            self.stocks[len(self.stocks)-1].buyPrice +=  (amount*price)
-
+            
             
     def sellShares(self, name:str, amount:int, price:float):
         for i in self.stocks:

@@ -78,6 +78,7 @@ class Player:
         for i in self.accounts:
             temp+= i.amount
         self.totalMoney = temp
+        return self.totalMoney
 
     def transferMoney(self, amount:float, acOne:str, acTwo:str):
         temp1

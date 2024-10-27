@@ -101,16 +101,9 @@ class Player:
         self.totalMoney = temp
         return self.totalMoney
 
-    def transferMoney(self, amount:float, acOne:str, acTwo:str):
-        temp1 = None
-        temp2 = None
-        for i in self.accounts:
-            if i.name == acOne:
-                temp1 = i
-            elif i.name == acTwo:
-                temp2 = i
-        temp1.removeAmount(amount)
-        temp2.addAmount(amount)
+    def transferMoney(self, amount:float, acOne:account.Account, acTwo:account.Account):
+        acOne.removeAmount(amount)
+        acTwo.addAmount(amount)
 
     def salaryUpdate(self, salary:int, year:int):
         temp = salary*(1.02**(year-2005))

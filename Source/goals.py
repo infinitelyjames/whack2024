@@ -1,4 +1,5 @@
 import Source.player as player
+import Source.account as account
 
 class Goal:
     def __init__(self, name:str, description:str, requiredAmount:int, requiredThreshold:int):
@@ -8,15 +9,15 @@ class Goal:
         self.requiredThreshold = requiredThreshold
         self.amountPaid = 0
         self.completed = False
+        self.moneyCounter = account.Account("Goal Account", 0)
     
     def returnResponse(self):
         if(self.amountPaid >= self.requiredAmount):
             self.completed = True
             return True
-            #return f"Congratulations, you have managed to fully purchase a {self.name}"
         else:
             self.completed = False
-            return False#f"Unfortunuately, you do not have enough to fully purchase a {self.name}. There is still £{self.requiredAmount - self.amountPaid} left to go"
+            return False
         
     def trackAmountPaid(self, amount:int):
         self.amountPaid += amount

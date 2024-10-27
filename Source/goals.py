@@ -19,8 +19,8 @@ class Goal:
             self.completed = False
             return False
         
-    def trackAmountPaid(self, amount:int):
-        self.amountPaid += amount
+    def trackAmountPaid(self):
+        self.amountPaid = self.moneyCounter.amount
     
     def meetsRequirements(self, player:player.Player):
         requirementsMet = False

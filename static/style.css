@@ -136,3 +136,7 @@ progress::-moz-progress-bar {
     display: flex;
     justify-content: center;
 }
+
+.wealthdistributionimage {
+    max-height: 30vmax;
+}

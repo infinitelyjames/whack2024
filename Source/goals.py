@@ -7,12 +7,11 @@ class Goal:
         self.description = description
         self.requiredAmount = requiredAmount
         self.requiredThreshold = requiredThreshold
-        self.amountPaid = 0
         self.completed = False
         self.moneyCounter = account.Account("Goal Account", 0)
     
     def returnResponse(self):
-        if(self.amountPaid >= self.requiredAmount):
+        if(self.trackAmountPaid() >= self.requiredAmount):
             self.completed = True
             return True
         else:

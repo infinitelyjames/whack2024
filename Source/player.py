@@ -103,7 +103,7 @@ class Player:
         temp2.addAmount(amount)
 
     def salaryUpdate(self, salary:int, year:int):
-        temp = salary*(1.02**year-2005)
+        temp = salary*(1.02**(year-2005))
         temp = round(temp, 2)
         self.accounts[0].amount += (temp - Source.tax_calculator.calculate_tax(year, temp))/12
         self.accounts[0].amount -= (temp *self.expenses)/12

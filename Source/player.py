@@ -98,8 +98,8 @@ class Player:
         return self.totalMoney
 
     def transferMoney(self, amount:float, acOne:str, acTwo:str):
-        temp1
-        temp2
+        temp1 = None
+        temp2 = None
         for i in self.accounts:
             if i.name == acOne:
                 temp1 = i

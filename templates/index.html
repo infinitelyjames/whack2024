@@ -9,6 +9,7 @@
     <h1>Hi there!</h1>
     <h2>Inventory</h2>
     <h3>Your total net worth is £{{ netWorth }}</h3>
+    <h3>Your expected yearly salary is £{{ yearlySalary }} (before tax)</h3>
     <div class="datecontainer">
         <h3>{{ dateText }}</h3>
         <p value="" id="countdowntext" hidden>{{ nextMonthStartsTimestamp }}</p>
@@ -62,14 +63,15 @@
     </div>
     <h2>News Articles</h2>
     <div class="panelcontainer">
-        <div class="playercontainer">
-            <h3>Boris Johnson dies</h3>
-            <p>GBP value rises, celebrations ensue.</p>
+        <!--<div class="playercontainer">
+            <h3>Britain Votes to Leave</h3>
+            <p>GBP collapses, markets are unstable.</p>
             <div class="buttonrow" >
                 <button>View More</button>
             </div>
             <p>Placeholder for image</p>
         </div>
+        <iframe src="{{ newsURL }}" width="100%" height="500px" title="Wayback Machine"></iframe>-->
         <!-- Maybe use an iframe??? TBD-->
     </div>
     <script src="{{ url_for('static', filename='index.js') }}"></script>

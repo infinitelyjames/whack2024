@@ -25,7 +25,7 @@ class App:
                     events.Event("Bill Decrease", "Your bills decreased!", 0.02, self.gamePlayer.billDecrease()),
                     events.Event("Accident", "You had an accident!", 0.06, self.gamePlayer.accident()),
                     events.Event("Lottery Winner", "You won the lottery!", 0.005, self.gamePlayer.lotteryWinner())]
-        self.eManager = events.eventManager(self.eventArr)
+        self.eManager = events.EventManager(self.eventArr)
     
     def getMonth(self):
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][self.monthCount % 12]

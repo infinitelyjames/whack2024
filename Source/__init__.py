@@ -6,6 +6,7 @@ import traceback
 MONTHS_DURATION = 5 # How many seconds to spend on each month in the game
 MONTH_COUNT_LIMIT=18*12 # 18 years
 STARTING_YEAR = 2005
+SALARY = 10000
 
 class App:
     """
@@ -45,7 +46,7 @@ class App:
             i.setSharePrice(data.DataManager.getStockPrice(self.monthCount, i.name))
     
     def updateSalary(self):
-        self.gamePlayer.salaryUpdate()
+        self.gamePlayer.salaryUpdate(SALARY, self.getYear())
 
     def background(self):
         self.updateAllImages()

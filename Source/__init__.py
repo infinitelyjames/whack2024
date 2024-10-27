@@ -48,9 +48,10 @@ class App:
         self.gamePlayer.makePieChart()
     
     def incrementMonth(self):
-        if (self.monthCount >= MONTH_COUNT_LIMIT): return
+        if (self.monthCount >= MONTH_COUNT_LIMIT): return False
         self.monthCount += 1
         self.gamePlayer.accounts[1].updateInterest(self.monthCount)
+        return True
     
     def updatePlayerStockValues(self):
         for i in self.gamePlayer.stocks:
@@ -66,7 +67,7 @@ class App:
                 print(f"INFO[Background Thread]: Starting month {self.monthCount}")
                 self.nextMonthStartsTimestamp = time.time() + MONTHS_DURATION
                 time.sleep(MONTHS_DURATION)
-                self.incrementMonth()
+                if not self.incrementMonth(): break
                 self.updatePlayerStockValues()
                 self.updateSalary()
                 self.updateAllImages()
@@ -75,6 +76,7 @@ class App:
                 print(f"ERROR[Background Thread]: {e}. Iteration failed, retrying in 5 seconds")
                 traceback.print_exc()
                 time.sleep(5)
+        print("INFO[Background Thread]: Game over")
 
     def spawnBackground(self):
         create_thread(self.background, ())

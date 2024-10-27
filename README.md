@@ -1,7 +1,7 @@
 # whack2024
 
 stocks, random events, savings account, piue chart for value of investments, news articles using wayback
-
+Get stock info from https://www.investing.com/equities/research-in-motion-ltd-historical-data
 # TODO
 DONE - Load investments from csvs
 DONE - Placeholder images (graphs) for investments

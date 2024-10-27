@@ -21,6 +21,7 @@
         <input type="number" id="transferAmount" value="0" min="0" step="1">
         <button onclick="onTransferToCurrentAccount()">To Current Account</button>
         <button onclick="onTransferToSavingsAccount()">To Savings</button>
+        <button onclick="onTransferToGoal()">To Goal</button>
     </div>
     <div class="panelcontainer">
         <image src="{{ url_for('static', filename='piechart.png') }}"></image>
@@ -59,10 +60,10 @@
                 <p>{{ goal.description }}</p>
             </div>
             <div class="row goaltextcontainer">
-                <p>Paid: £{{ goal.amountPaid }}</p>
+                <p>Paid: £{{ goal.trackAmountPaid() }}</p>
                 <p>Required: £{{ goal.requiredAmount }}</p>
             </div>
-            <progress value="{{ goal.amountPaid }}" max="{{ goal.requiredAmount }}" class="goalprogressbar">
+            <progress value="{{ goal.trackAmountPaid() }}" max="{{ goal.requiredAmount }}" class="goalprogressbar">
         </div>
         {% else %}
         <div class="goalitem centerhorizontalcontainer">

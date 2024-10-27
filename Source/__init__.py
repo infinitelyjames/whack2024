@@ -75,6 +75,7 @@ class App:
                 playerShares=self.gamePlayer.stocks,
                 nextMonthStartsTimestamp=self.nextMonthStartsTimestamp,
                 allShares=data.DataManager.dataDict,
+                netWorth=self.gamePlayer.calculateTotalMoney()
             )
     
     def addPOSTRoutes(self):
